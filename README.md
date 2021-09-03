@@ -12,4 +12,5 @@
 - [ ] Đăng nhập
 - [ ] Đăng kí
 - [ ] Tìm kiếm sản phẩm
-- [ ] Xem giỏ hàng
+- [ ] Xem giỏ hàng 
+- [ ] Xem chi tiết hàng
