@@ -15,3 +15,5 @@
 - [ ] Xem giỏ hàng 
 - [ ] Xem chi tiết sản phẩm
 - [ ] Menu phân loại sản phẩm
+- [ ] Xem xoá sửa thông tin cá nhân
+
