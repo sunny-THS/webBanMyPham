@@ -13,4 +13,5 @@
 - [ ] Đăng kí
 - [ ] Tìm kiếm sản phẩm
 - [ ] Xem giỏ hàng 
-- [ ] Xem chi tiết hàng
+- [ ] Xem chi tiết sản phẩm
+- [ ] Menu phân loại sản phẩm
