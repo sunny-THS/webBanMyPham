@@ -1,7 +1,7 @@
 # webBanMyPham
 đồ án web mvc
 
-## Mô tả
+## Task
 - [ ] Theo mô hình mvc
 - [ ] Lâp csdl
 - [ ] Tìm dữ liệu
@@ -16,4 +16,5 @@
 - [ ] Xem chi tiết sản phẩm
 - [ ] Menu phân loại sản phẩm
 - [ ] Xem xoá sửa thông tin cá nhân
+- [ ] Gửi mail xác nhận mail
 
