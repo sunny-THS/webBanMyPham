@@ -14,9 +14,13 @@ CREATE TABLE TB_LOGIN (
     LG_PW VARCHAR(100), -- MÃ HÓA 
     CONSTRAINT PK_LOGIN PRIMARY KEY (LG_ID)
 )
+-- GR ADMIN(00): CONTROL ALL
+-- GR NHÂN VIÊN(01): HỖ TRỢ KHÁCH HÀNG XỬ LÝ ĐƠN HÀNG
+-- GR KHÁCH HÀNG(02): NGƯỜI DÙNG
 CREATE TABLE TB_GRTK (
     GR_ID INT IDENTITY NOT NULL,
     GR_TEN NVARCHAR(50), -- TÊN GR
+    GR_CODEGR CHAR(2),
     CONSTRAINT PK_GR PRIMARY KEY (GR_ID) 
 )
 CREATE TABLE TB_THONGTINTAIKHOAN (
@@ -32,8 +36,8 @@ CREATE TABLE TB_THONGTINTAIKHOAN (
     TTTK_ID_GR INT REFERENCES TB_GRTK(GR_ID),
     CONSTRAINT PK_TTTK PRIMARY KEY (TTTK_ID)
 )
-
 GO
+
 ----------------------------------------------------------
 --  ___   Proc                     _   ___   Func       --
 -- | _ \_ _ ___  __   __ _ _ _  __| | | __|  _ _ _  __  --
@@ -50,10 +54,7 @@ AS
 GO
 
 -- function
-CREATE FUNCTION fn_autoIDLG(@maTK CHAR(2)) -- id login
--- @matk = 00 : admin (duy nhất)
--- @matk = 01 : nhân viên
--- @matk = 02 : khách hàng
+CREATE FUNCTION fn_autoIDLG(@TENGR NVARCHAR(50)) -- id login
 RETURNS VARCHAR(15)
 AS
 BEGIN
@@ -66,11 +67,15 @@ BEGIN
 
     DECLARE @ngayTao VARCHAR(8) = convert(VARCHAR, getdate(), 112) -- format yyyymmdd
     DECLARE @stt VARCHAR(5) = CONVERT(VARCHAR, CONVERT(INT, @ID) + 1)
+    DECLARE @maCodeGr CHAR(2)
+
+    -- LẤY MÃ GR
+    SELECT @maCodeGr = GR_CODEGR FROM TB_GRTK
 
 	SELECT @ID = CASE
-		WHEN @ID >=  0 and @ID < 9 THEN @ngayTao + @maTK + '00' + @stt
-		WHEN @ID >=  9 THEN @ngayTao + @maTK + '0' + @stt
-		WHEN @ID >= 99 THEN @ngayTao + @maTK + @stt
+		WHEN @ID >=  0 and @ID < 9 THEN @ngayTao + @maCodeGr + '00' + @stt
+		WHEN @ID >=  9 THEN @ngayTao + @maCodeGr + '0' + @stt
+		WHEN @ID >= 99 THEN @ngayTao + @maCodeGr + @stt
 	END
 
 	RETURN @ID
@@ -91,3 +96,21 @@ BEGIN
 	RETURN @ID
 END
 GO
+
+-- TẠO RÀNG BUỘC
+ALTER TABLE TB_THONGTINTAIKHOAN
+ADD CONSTRAINT DF_NGTAO DEFAULT GETDATE() FOR TTTK_NGTAO
+--------------------------------
+--  ___           _   data    --
+-- |   \   __ _  | |_   __ _  --
+-- | |) | / _` | |  _| / _` | --
+-- |___/  \__,_|  \__| \__,_| --
+--------------------------------
+
+-- BẢNG TB_GRTK
+INSERT TB_GRTK VALUES(N'ADMIN', '00')
+INSERT TB_GRTK VALUES(N'NHÂN VIÊN', '01')
+INSERT TB_GRTK VALUES(N'KHÁCH HÀNG', '02')
+
+-- BẢNG TB_LOGIN
+INSERT TB_LOGIN VALUES(DBO.fn_autoIDLG(N'ADMIN'), 'admin', '')
