@@ -6,7 +6,7 @@ Thông tin nguời dùng
 - Ngày tạo
 - Lương (Nhân viên)
 - Ngày vào làm (Nhân viên)
-- Số lượng sản phẩm mà nhân viên đó bán (Nhân viên)
+- Số lượng sản phẩm mà nhân viên đó bán (Nhân viên) -- THỐNG KÊ 
 - Số diện thoại
 - Email
 - Địa chỉ
