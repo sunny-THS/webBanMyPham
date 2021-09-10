@@ -2,11 +2,20 @@
 đồ án web mvc
 
 ## Task
-- [ ] Theo mô hình mvc
-- [ ] Lâp csdl
-- [ ] Tìm dữ liệu
+
 
 ## CSDL
+- Gồm các bảng
+    - TAIKHOAN
+    - GRTK
+    - THONGTINTAIKHOAN
+    - KHACHHANG
+    - NHANVIEN
+    - LOAISP
+    - SANPHAM
+    - DONGIA
+    - HOADON
+    - CHITIETHOADON
 
 ## Chức năng
 - [ ] Đăng nhập
