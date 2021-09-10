@@ -2,6 +2,10 @@
 đồ án web mvc
 
 ## Task
+- [ ] Hàm tìm kiếm sản phẩm
+- [ ] Hàm xuất thông tin sản phẩm
+- [ ] Hàm xuất thông tin nhân viên - thống kê
+- [ ] Hàm xuất thông tin sản phẩm bán chạy - thống kê
 
 
 ## CSDL
