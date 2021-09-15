@@ -10,7 +10,7 @@
 | 4 | 2001190248 | Trần Thành Tâm | ... | ... | ... |
 
 ## Khái quát
-## Ngôn ngữ
+### Ngôn ngữ
 - HTML
 - Bootstrap (v5.1.1) [Link](https://getbootstrap.com/)
 - Jquery (v3.6.0) [Link](https://jquery.com/)
