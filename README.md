@@ -36,6 +36,8 @@
     - DONGIA
     - HOADON
     - CHITIETHOADON
+    - SALE
+    - THONGKETRUYCAP
 
 ## Chức năng
 ### Tài khoản
@@ -50,6 +52,8 @@
 - [ ] Tạo/xuất hóa đơn
 ### Quản lý số lượng tồn kho
 - Cập nhật số lượng khi nhập xuất sản phẩm
+- [ ] Kiểm tra số lượng tồn kho
+- [ ] Thông báo nhập hàng thêm khi số lượng tồn kho không đủ hoặc quá thấp
 ### Chức năng báo cáo (report)
 - [ ] Doanh thu của cty (ngày, tháng, năm)
 - [ ] Sản phẩm (số lượng tồn kho, mặt hàng bán chạy,...)
