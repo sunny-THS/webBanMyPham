@@ -102,6 +102,12 @@ CREATE TABLE THONGKETRUYCAP (
 )
 GO
 
+-- CREATE TABLE VIEW 
+CREATE VIEW rndVIEW
+AS
+SELECT RAND() rndResult
+GO
+
 ----------------------------------------------------------
 --  ___   Proc                     _   ___   Func       --
 -- | _ \_ _ ___  __   __ _ _ _  __| | | __|  _ _ _  __  --
@@ -109,14 +115,7 @@ GO
 -- |_| |_| \___/\__| \__,_|_||_\__,_| |_| \_,_|_||_\__| --
 ----------------------------------------------------------
 
--- proc 
-CREATE PROC sp_getRandom -- TRẢ VỀ 1 SỐ NGẪU NHIÊN
-@min int, 
-@max int
-AS
-    RETURN FLOOR(RAND() * (@max - @min + 1) + @min);
-GO
-
+-- proc
 CREATE PROC sp_getIDGR -- TRẢ VỀ ID GR
 @tenGr VARCHAR(50)
 AS
@@ -127,6 +126,17 @@ AS
 GO
 
 -- function
+CREATE FUNCTION fn_getRandom ( -- TRẢ VỀ 1 SỐ NGẪU NHIÊN
+	@min int, 
+	@max int
+)
+RETURNS INT
+AS
+BEGIN
+    RETURN FLOOR((SELECT rndResult FROM rndVIEW) * (@max - @min + 1) + @min);
+END
+GO
+
 CREATE FUNCTION fn_getCodeGr(@tenGr VARCHAR(50)) -- TRẢ VỀ CODE GR
 RETURNS CHAR(2)
 AS
@@ -244,8 +254,7 @@ CREATE FUNCTION fn_autoIDTTND(
 RETURNS VARCHAR(20)
 AS
 BEGIN
-    DECLARE @randNumber INT
-    EXEC @randNumber = sp_getRandom 100, 999
+    DECLARE @randNumber INT = DBO.fn_getRandom(100, 999)
     
     DECLARE @ID VARCHAR(20) = @idLogin + convert(CHAR, @randNumber)
 
