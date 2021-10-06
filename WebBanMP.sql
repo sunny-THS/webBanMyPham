@@ -50,7 +50,7 @@ CREATE TABLE NHANVIEN (
     CONSTRAINT FK_NV_TK FOREIGN KEY (ID_TK) REFERENCES TAIKHOAN(ID)
 )
 CREATE TABLE LOAISP ( -- _________________________________
-    ID VARCHAR(5) NOT NULL,
+    ID VARCHAR(6) NOT NULL,
     TENLOAI NVARCHAR(50),
     CONSTRAINT PK_LSP PRIMARY KEY (ID)
 )
@@ -61,7 +61,7 @@ CREATE TABLE SANPHAM ( -- _________________________________
     SOLUONG INT, -- SỐ LƯỢNG TỒN KHO
     -- DONGIA FLOAT, -- ĐƠN GIÁ
     NSX NVARCHAR(30), -- NHÀ SẢN XUẤT
-    ID_LOAI VARCHAR(5) REFERENCES LOAISP(ID),
+    ID_LOAI VARCHAR(6) REFERENCES LOAISP(ID),
     CONSTRAINT PK_SP PRIMARY KEY (ID)
 )
 CREATE TABLE SALE (
@@ -261,6 +261,30 @@ BEGIN
 END
 GO
 
+CREATE FUNCTION fn_autoIDLSP() -- id LOẠI SP -- chỉnh
+RETURNS VARCHAR(6)
+AS
+BEGIN
+	DECLARE @ID VARCHAR(6)
+
+	IF (SELECT COUNT(ID) FROM LOAISP) = 0
+		SET @ID = '0'
+	ELSE
+		SELECT @ID = MAX(RIGHT(ID, 3)) FROM HOADON
+
+    DECLARE @stt VARCHAR(3) = CONVERT(VARCHAR, CONVERT(INT, @ID) + 1)
+    DECLARE @maCode CHAR(3) = 'LSP'
+
+	SELECT @ID = CASE
+		WHEN @ID >=  0 and @ID < 9 THEN @maCode + '00' + @stt
+		WHEN @ID >=  9 THEN @maCode + '0' + @stt
+		WHEN @ID >= 99 THEN @maCode + @stt
+	END
+
+	RETURN @ID
+END
+GO
+
 CREATE FUNCTION fn_autoIDTTND(
     @idLogin VARCHAR(15)
 ) -- id CỦA THÔNG TIN NGƯỜI DÙNG: IDLOGIN + mã rand
@@ -295,6 +319,21 @@ SELECT
     ,ERROR_MESSAGE() AS ErrorMessage;
 GO 
 
+CREATE PROC sp_AddLSP -- THÊM LOẠI SP
+@tenLSP NVARCHAR(50)
+AS 
+    BEGIN TRY
+		IF EXISTS(SELECT * FROM LOAISP WHERE TENLOAI = @tenLSP)
+			THROW 51000, N'Loại sản phẩm đã tồn tại.', 1;
+		
+		INSERT LOAISP
+		SELECT DBO.fn_autoIDLSP(), @tenLSP; 
+	END TRY
+	BEGIN CATCH
+		EXEC sp_GetErrorInfo;
+	END CATCH
+GO
+
 CREATE PROC sp_AddAcc
 @userName VARCHAR(50),
 @pw VARCHAR(50),
@@ -315,7 +354,7 @@ AS
 		SELECT @ID, @userName, @createPW, @IDGR; 
 	END TRY
 	BEGIN CATCH
-		 EXEC sp_GetErrorInfo;
+		EXEC sp_GetErrorInfo;
 	END CATCH
 GO
 
