@@ -166,18 +166,19 @@ RETURNS VARCHAR(15)
 AS
 BEGIN
 	DECLARE @ID VARCHAR(15)
+	DECLARE @maCodeGr CHAR(2)
+	DECLARE @IDGR INT
 
-	IF (SELECT COUNT(ID) FROM TAIKHOAN) = 0
+    -- LẤY MÃ GR
+    SELECT @IDGR=ID, @maCodeGr = CODEGR FROM GRTK WHERE TEN = @TENGR
+
+	IF (SELECT COUNT(ID) FROM TAIKHOAN WHERE ID_GR = @IDGR) = 0
 		SET @ID = '0'
 	ELSE
-		SELECT @ID = MAX(RIGHT(ID, 3)) FROM TAIKHOAN
+		SELECT @ID = MAX(RIGHT(ID, 3)) FROM TAIKHOAN WHERE ID_GR = @IDGR
 
     DECLARE @ngayTao VARCHAR(8) = convert(VARCHAR, getdate(), 112) -- format yyyymmdd
     DECLARE @stt VARCHAR(5) = CONVERT(VARCHAR, CONVERT(INT, @ID) + 1)
-    DECLARE @maCodeGr CHAR(2)
-
-    -- LẤY MÃ GR
-    SELECT @maCodeGr = CODEGR FROM GRTK WHERE TEN = @TENGR
 
 	SELECT @ID = CASE
 		WHEN @ID >=  0 and @ID < 9 THEN @ngayTao + @maCodeGr + '00' + @stt
@@ -360,7 +361,7 @@ AS
 		DECLARE @IDGR INT
 		EXEC @IDGR = sp_getIDGR @GRNAME -- id gr
 
-        IF (@GRNAME = N'NHÂN VIÊN')
+        IF (UPPER(@GRNAME) = N'KHÁCH HÀNG')
         BEGIN
             SET @userName = NULL;
             SET @createPW = NULL;
@@ -373,9 +374,9 @@ AS
 		INSERT TAIKHOAN
 		SELECT @ID, @userName, @createPW, @IDGR; 
 
-        DECLARE @GTINH BIT = 1
+        DECLARE @GTINH BIT = 0
         IF (UPPER(@gioiTinh) = N'NAM')
-            SET @GTINH = 0;
+            SET @GTINH = 1;
 
         -- tạo thông tin người dùng
         INSERT THONGTINTAIKHOAN(ID, HOTEN, NGSINH, GTINH, EMAIL, SDT, DCHI, ID_TAIKHOAN)
@@ -430,3 +431,5 @@ INSERT GRTK VALUES(N'KHÁCH HÀNG', '02')
 
 -- BẢNG TAIKHOAN
 EXEC sp_AddAcc 'admin', 'admin@123456789', N'ADMIN', N'Admin', '2-5-2001', N'nam', 'admin@gmail.com', '000000000', null
+EXEC sp_AddAcc 'tuhueson', 'tuhueson@123456789', N'Nhân viên', N'Từ Huệ Sơn', '2-5-2001', N'nam', 'tuhueson@gmail.com', '000000000', null
+EXEC sp_AddAcc 'leductai', 'leductai@123456789', N'Nhân viên', N'lê đức tài', '2-5-2001', N'nam', 'leductai@gmail.com', '000000000', null
