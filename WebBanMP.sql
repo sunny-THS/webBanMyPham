@@ -333,25 +333,53 @@ AS
 		EXEC sp_GetErrorInfo;
 	END CATCH
 GO
-
+-- ID VARCHAR(20)
+-- HOTEN NVARCHAR(50), -- HỌ TÊN
+-- NGSINH DATE, -- NGÀY SINH
+-- GTINH BIT, -- 1: NAM, 0: NỮ, NULL: CHƯA BIẾT(QUY VỀ 0)
+-- NGTAO DATE, -- NGÀY TẠO
+-- EMAIL VARCHAR(50), -- ĐỊA CHỈ EMAIL
+-- SDT VARCHAR(11), -- SDT
+-- DCHI NVARCHAR(50)
 CREATE PROC sp_AddAcc
-@userName VARCHAR(50),
+@userName VARCHAR(50), -- THÔNG TIN TÀI KHOẢN
 @pw VARCHAR(50),
-@GRNAME NVARCHAR(50)
+@GRNAME NVARCHAR(50),
+@hoTen NVARCHAR(50),
+@ngSinh DATE,
+@gioiTinh NVARCHAR(5),
+@email VARCHAR(50),
+@sdt VARCHAR(11),
+@dChi NVARCHAR(50)
 AS
 	BEGIN TRY
-		DECLARE @ID VARCHAR(15) = DBO.fn_autoIDTK(@GRNAME)
+		DECLARE @ID VARCHAR(15) = DBO.fn_autoIDTK(@GRNAME) -- id login
 
 		DECLARE	@createPW VARBINARY(MAX) = SubString(DBO.fn_hash(@ID), 1, len(DBO.fn_hash(@ID))/2) + DBO.fn_hash(@pw + @ID)
 
 		DECLARE @IDGR INT
-		EXEC @IDGR = sp_getIDGR @GRNAME
+		EXEC @IDGR = sp_getIDGR @GRNAME -- id gr
+
+        IF (@GRNAME = N'NHÂN VIÊN')
+        BEGIN
+            SET @userName = NULL;
+            SET @createPW = NULL;
+        END
 
 		IF EXISTS(SELECT * FROM TAIKHOAN WHERE ID_GR = @IDGR AND USERNAME = @userName)
 			THROW 51000, N'Username đã tồn tại.', 1;
-		
+
+		-- tạo tài khoản
 		INSERT TAIKHOAN
 		SELECT @ID, @userName, @createPW, @IDGR; 
+
+        DECLARE @GTINH BIT = 1
+        IF (UPPER(@gioiTinh) = N'NAM')
+            SET @GTINH = 0;
+
+        -- tạo thông tin người dùng
+        INSERT THONGTINTAIKHOAN(ID, HOTEN, NGSINH, GTINH, EMAIL, SDT, DCHI, ID_TAIKHOAN)
+        VALUES(DBO.fn_autoIDTTND(@ID), UPPER(@hoTen), @ngSinh, @GTINH, @email, @sdt, @dChi, @ID)
 	END TRY
 	BEGIN CATCH
 		EXEC sp_GetErrorInfo;
@@ -401,4 +429,4 @@ INSERT GRTK VALUES(N'NHÂN VIÊN', '01')
 INSERT GRTK VALUES(N'KHÁCH HÀNG', '02')
 
 -- BẢNG TAIKHOAN
-EXEC sp_AddAcc 'admin', 'admin@123456789', N'ADMIN' 
+EXEC sp_AddAcc 'admin', 'admin@123456789', N'ADMIN', N'Admin', '2-5-2001', N'nam', 'admin@gmail.com', '000000000', null
