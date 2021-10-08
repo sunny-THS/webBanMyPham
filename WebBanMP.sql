@@ -58,7 +58,7 @@ CREATE TABLE LOAISP ( -- _________________________________
     ID VARCHAR(6) NOT NULL,
     TENLOAI NVARCHAR(50),
     ID_DMUC INT REFERENCES DANHMUC(ID),
-    CONSTRAINT PK_LSP PRIMARY KEY (ID)
+    CONSTRAINT PK_LSP PRIMARY KEY (ID, ID_DMUC)
 )
 CREATE TABLE SANPHAM ( -- _________________________________
     ID VARCHAR(5) NOT NULL, -- CREATE AUTO
@@ -381,11 +381,11 @@ CREATE PROC sp_AddLSP -- THÊM LOẠI SP
 @tenDanhMuc NVARCHAR(50)
 AS 
     BEGIN TRY
-		IF EXISTS(SELECT * FROM LOAISP WHERE TENLOAI = @tenLSP)
-			THROW 51000, N'Loại sản phẩm đã tồn tại.', 1;
-
         DECLARE @idDanhMuc INT
         EXEC @idDanhMuc = sp_getIDDMUC @tenDanhMuc
+
+        IF EXISTS(SELECT * FROM LOAISP WHERE ID_DMUC = @idDanhMuc)
+			THROW 51000, N'Loại sản phẩm đã tồn tại.', 1;
 		
 		INSERT LOAISP
 		SELECT DBO.fn_autoIDLSP(), UPPER(@tenLSP), @idDanhMuc; 
@@ -518,28 +518,28 @@ EXEC sp_AddLSP N'Xịt khoáng', N'Chăm sóc da'
 EXEC sp_AddLSP N'Mặt nạ', N'Chăm sóc da'
 EXEC sp_AddLSP N'Chống nắng', N'Chăm sóc da'
 -- chăm sóc cơ thể
--- EXEC sp_AddLSP N'Sữa tắm', N'Chăm sóc cơ thể'
--- EXEC sp_AddLSP N'Tẩy tế bào chết', N'Chăm sóc cơ thể'
--- EXEC sp_AddLSP N'Lotion', N'Chăm sóc cơ thể'
--- EXEC sp_AddLSP N'Kem dưỡng da tay', N'Chăm sóc cơ thể'
--- EXEC sp_AddLSP N'Sản phẩm khử mùi', N'Chăm sóc cơ thể'
--- EXEC sp_AddLSP N'Nước hoa', N'Chăm sóc cơ thể'
+EXEC sp_AddLSP N'Sữa tắm', N'Chăm sóc cơ thể'
+EXEC sp_AddLSP N'Tẩy tế bào chết', N'Chăm sóc cơ thể'
+EXEC sp_AddLSP N'Lotion', N'Chăm sóc cơ thể'
+EXEC sp_AddLSP N'Kem dưỡng da tay', N'Chăm sóc cơ thể'
+EXEC sp_AddLSP N'Sản phẩm khử mùi', N'Chăm sóc cơ thể'
+EXEC sp_AddLSP N'Nước hoa', N'Chăm sóc cơ thể'
 -- Chăm sóc tóc
--- EXEC sp_AddLSP N'Dầu gội', N'Chăm sóc tóc'
--- EXEC sp_AddLSP N'Dầu xả', N'Chăm sóc tóc'
--- EXEC sp_AddLSP N'Kem ủ tóc', N'Chăm sóc tóc'
--- EXEC sp_AddLSP N'Đặc trị tóc', N'Chăm sóc tóc'
--- EXEC sp_AddLSP N'Nhuộm tóc', N'Chăm sóc tóc'
+EXEC sp_AddLSP N'Dầu gội', N'Chăm sóc tóc'
+EXEC sp_AddLSP N'Dầu xả', N'Chăm sóc tóc'
+EXEC sp_AddLSP N'Kem ủ tóc', N'Chăm sóc tóc'
+EXEC sp_AddLSP N'Đặc trị tóc', N'Chăm sóc tóc'
+EXEC sp_AddLSP N'Nhuộm tóc', N'Chăm sóc tóc'
 -- Trang điểm
--- EXEC sp_AddLSP N'Kem lót', N'Trang điểm'
--- EXEC sp_AddLSP N'Kem nền', N'Trang điểm'
--- EXEC sp_AddLSP N'Che khuyết điểm', N'Trang điểm'
--- EXEC sp_AddLSP N'Phấn phủ', N'Trang điểm'
--- EXEC sp_AddLSP N'Tạo khối', N'Trang điểm'
--- EXEC sp_AddLSP N'Kẻ chân mày', N'Trang điểm'
--- EXEC sp_AddLSP N'Phấn mắt', N'Trang điểm'
--- EXEC sp_AddLSP N'Kẻ mắt', N'Trang điểm'
--- EXEC sp_AddLSP N'Mascara', N'Trang điểm'
--- EXEC sp_AddLSP N'Má hồng', N'Trang điểm'
--- EXEC sp_AddLSP N'Son thỏi', N'Trang điểm'
--- EXEC sp_AddLSP N'Son kem', N'Trang điểm'
+EXEC sp_AddLSP N'Kem lót', N'Trang điểm'
+EXEC sp_AddLSP N'Kem nền', N'Trang điểm'
+EXEC sp_AddLSP N'Che khuyết điểm', N'Trang điểm'
+EXEC sp_AddLSP N'Phấn phủ', N'Trang điểm'
+EXEC sp_AddLSP N'Tạo khối', N'Trang điểm'
+EXEC sp_AddLSP N'Kẻ chân mày', N'Trang điểm'
+EXEC sp_AddLSP N'Phấn mắt', N'Trang điểm'
+EXEC sp_AddLSP N'Kẻ mắt', N'Trang điểm'
+EXEC sp_AddLSP N'Mascara', N'Trang điểm'
+EXEC sp_AddLSP N'Má hồng', N'Trang điểm'
+EXEC sp_AddLSP N'Son thỏi', N'Trang điểm'
+EXEC sp_AddLSP N'Son kem', N'Trang điểm'
