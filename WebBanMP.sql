@@ -293,7 +293,7 @@ BEGIN
 END
 GO
 
-CREATE FUNCTION fn_autoIDLSP() -- id SP
+CREATE FUNCTION fn_autoIDSP() -- id SP
 RETURNS VARCHAR(5)
 AS
 BEGIN
@@ -377,20 +377,24 @@ AS
 GO
 
 CREATE PROC sp_AddLSP -- THÊM LOẠI SP
-@tenLSP NVARCHAR(50)
+@tenLSP NVARCHAR(50),
+@tenDanhMuc NVARCHAR(50)
 AS 
     BEGIN TRY
 		IF EXISTS(SELECT * FROM LOAISP WHERE TENLOAI = @tenLSP)
 			THROW 51000, N'Loại sản phẩm đã tồn tại.', 1;
+
+        DECLARE @idDanhMuc INT
+        EXEC @idDanhMuc = sp_getIDDMUC @tenDanhMuc
 		
 		INSERT LOAISP
-		SELECT DBO.fn_autoIDLSP(), @tenLSP; 
+		SELECT DBO.fn_autoIDLSP(), UPPER(@tenLSP), @idDanhMuc; 
 	END TRY
 	BEGIN CATCH
 		EXEC sp_GetErrorInfo;
 	END CATCH
 GO
-CREATE PROC sp_AddSP
+--CREATE PROC sp_AddSP
 
 -- ID VARCHAR(20)
 -- HOTEN NVARCHAR(50), -- HỌ TÊN
@@ -499,3 +503,16 @@ EXEC sp_AddDMUC N'Chăm sóc da'
 EXEC sp_AddDMUC N'Chăm sóc cơ thể' 
 EXEC sp_AddDMUC N'Chăm sóc tóc' 
 EXEC sp_AddDMUC N'Trang điểm' 
+
+-- BẢNG LOẠI SP
+exec sp_AddLSP N'Tẩy trang', N'Chăm sóc da'
+exec sp_AddLSP N'Sữa rửa mặt', N'Chăm sóc da'
+exec sp_AddLSP N'Tẩy tế bào chết', N'Chăm sóc da'
+exec sp_AddLSP N'Toner', N'Chăm sóc da'
+exec sp_AddLSP N'Serum', N'Chăm sóc da'
+exec sp_AddLSP N'Kem dưỡng', N'Chăm sóc da'
+exec sp_AddLSP N'Dưỡng mắt', N'Chăm sóc da'
+exec sp_AddLSP N'Son dưỡng', N'Chăm sóc da'
+exec sp_AddLSP N'Xịt khoáng', N'Chăm sóc da'
+exec sp_AddLSP N'Mặt nạ', N'Chăm sóc da'
+exec sp_AddLSP N'Chống nắng', N'Chăm sóc da'
