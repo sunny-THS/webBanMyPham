@@ -18,7 +18,7 @@ EXEC sp_AddSP N'BYE BYE BLACKHEAD', N'Tác dụng hỗ trợ ngăn ngừa và đ
 EXEC sp_AddSP N'COCOON', N'Làm thông thoáng lỗ chân lông. Ngăn ngừa khuyết điểm trên da. Tẩy da chết làm đều màu da', 15, 100000, N'Mỹ', 'TBC1.jpg', N'Tẩy tế bào chết'
 EXEC sp_AddSP N'NARUKO', N'Làm thông thoáng lỗ chân lông. Ngăn ngừa khuyết điểm trên da. Tẩy da chết làm đều màu da', 12, 200000, N'Mỹ', 'TBC2.jpg', N'Tẩy tế bào chết'
 EXEC sp_AddSP N'HUXLEY', N'Làm thông thoáng lỗ chân lông. Ngăn ngừa khuyết điểm trên da. Tẩy da chết làm đều màu da', 22, 300000, N'Pháp', 'TBC3.jpg', N'Tẩy tế bào chết'
-EXEC sp_AddSP N'SEBIUM', N'Làm thông thoáng lỗ chân lông. Ngăn ngừa khuyết điểm trên da. Tẩy da chết làm đều màu da', 10, 250000, N'Anh', 'TBC4.jpg', N'Tẩy tế bào chết'
+EXEC sp_AddSP N'BIODERMA', N'Làm thông thoáng lỗ chân lông. Ngăn ngừa khuyết điểm trên da. Tẩy da chết làm đều màu da', 10, 250000, N'Anh', 'TBC4.jpg', N'Tẩy tế bào chết'
 EXEC sp_AddSP N'ROSETTE', N'Làm thông thoáng lỗ chân lông. Ngăn ngừa khuyết điểm trên da. Tẩy da chết làm đều màu da', 6, 150000, N'Nhật', 'TBC5.jpg', N'Tẩy tế bào chết'
 EXEC sp_AddSP N'MAMONDE', N'Làm thông thoáng lỗ chân lông. Ngăn ngừa khuyết điểm trên da. Tẩy da chết làm đều màu da', 8, 400000, N'Pháp', 'TBC6.jpg', N'Tẩy tế bào chết'
 
