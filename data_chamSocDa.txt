@@ -3,7 +3,7 @@
 
 EXEC sp_AddSP N'L'OREAL', N'Làm sạch sâu. Giúp thông thoáng lỗ chân lông. Dưỡng ẩm cho da. Ngăn ngừa mụn. Thúc đẩy quá trình tái tạo tế bào da mới.', 15, 500000, N'Mỹ', 'TayTrang1.jpg', N'Tẩy trang'
 EXEC sp_AddSP N'SENKA', N'Làm sạch sâu. Giúp thông thoáng lỗ chân lông. Dưỡng ẩm cho da. Ngăn ngừa mụn. Thúc đẩy quá trình tái tạo tế bào da mới.', 20, 400000, N'Nhật', 'TayTrang2.jpg', N'Tẩy trang'
-EXEC sp_AddSP N'BLODERMA', N'Làm sạch sâu. Giúp thông thoáng lỗ chân lông. Dưỡng ẩm cho da. Ngăn ngừa mụn. Thúc đẩy quá trình tái tạo tế bào da mới.', 10, 600000, N'Pháp', 'TayTrang3.jpg', N'Tẩy trang'
+EXEC sp_AddSP N'BIODERMA', N'Làm sạch sâu. Giúp thông thoáng lỗ chân lông. Dưỡng ẩm cho da. Ngăn ngừa mụn. Thúc đẩy quá trình tái tạo tế bào da mới.', 10, 600000, N'Pháp', 'TayTrang3.jpg', N'Tẩy trang'
 EXEC sp_AddSP N'LA ROCHE-POSAY', N'Làm sạch sâu. Giúp thông thoáng lỗ chân lông. Dưỡng ẩm cho da. Ngăn ngừa mụn. Thúc đẩy quá trình tái tạo tế bào da mới.', 12, 450000, N'Pháp', 'TayTrang4.jpg', N'Tẩy trang'
 EXEC sp_AddSP N'COCOON', N'Làm sạch sâu. Giúp thông thoáng lỗ chân lông. Dưỡng ẩm cho da. Ngăn ngừa mụn. Thúc đẩy quá trình tái tạo tế bào da mới.', 16, 230000, N'Anh', 'TayTrang5.jpg', N'Tẩy trang'
 EXEC sp_AddSP N'PURBLEUET', N'Làm sạch sâu. Giúp thông thoáng lỗ chân lông. Dưỡng ẩm cho da. Ngăn ngừa mụn. Thúc đẩy quá trình tái tạo tế bào da mới.', 22, 550000, N'Mỹ', 'TayTrang6.jpg', N'Tẩy trang'
