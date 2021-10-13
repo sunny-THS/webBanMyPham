@@ -9,7 +9,7 @@ EXEC sp_AddSP N'COCOON', N'Làm sạch sâu. Giúp thông thoáng lỗ chân lô
 EXEC sp_AddSP N'YVES ROCHER', N'Làm sạch sâu. Giúp thông thoáng lỗ chân lông. Dưỡng ẩm cho da. Ngăn ngừa mụn. Thúc đẩy quá trình tái tạo tế bào da mới.', 22, 550000, N'Mỹ', 'TayTrang6.jpg', N'Tẩy trang'
 
 EXEC sp_AddSP N'CICA CLEANSER', N'Tác dụng hỗ trợ ngăn ngừa và điều trị mụn. Se khít lỗ chân lông.Cân bằng độ ẩm cho da. Giúp da hấp thu dưỡng chất tốt hơn trong các bước dưỡng sau đó', 10, 500000, N'Mỹ', 'Srm1.jpg', N'Sữa rửa mặt'
-EXEC sp_AddSP N'LOW pH GOOD MORNING', N'Tác dụng hỗ trợ ngăn ngừa và điều trị mụn. Se khít lỗ chân lông.Cân bằng độ ẩm cho da. Giúp da hấp thu dưỡng chất tốt hơn trong các bước dưỡng sau đó', 15, 300000, N'Mỹ', 'Srm2.jpg', N'Sữa rửa mặt'
+EXEC sp_AddSP N'COSRX', N'Tác dụng hỗ trợ ngăn ngừa và điều trị mụn. Se khít lỗ chân lông.Cân bằng độ ẩm cho da. Giúp da hấp thu dưỡng chất tốt hơn trong các bước dưỡng sau đó', 15, 300000, N'Mỹ', 'Srm2.jpg', N'Sữa rửa mặt'
 EXEC sp_AddSP N'BLACK SUGAR', N'Tác dụng hỗ trợ ngăn ngừa và điều trị mụn. Se khít lỗ chân lông.Cân bằng độ ẩm cho da. Giúp da hấp thu dưỡng chất tốt hơn trong các bước dưỡng sau đó', 25, 250000, N'Mỹ', 'Srm3.jpg', N'Sữa rửa mặt'
 EXEC sp_AddSP N'DR BELMEUR', N'Tác dụng hỗ trợ ngăn ngừa và điều trị mụn. Se khít lỗ chân lông.Cân bằng độ ẩm cho da. Giúp da hấp thu dưỡng chất tốt hơn trong các bước dưỡng sau đó', 12, 350000, N'Pháp', 'Srm4.jpg', N'Sữa rửa mặt'
 EXEC sp_AddSP N'CERAVE', N'Tác dụng hỗ trợ ngăn ngừa và điều trị mụn. Se khít lỗ chân lông.Cân bằng độ ẩm cho da. Giúp da hấp thu dưỡng chất tốt hơn trong các bước dưỡng sau đó', 20, 100000, N'Mỹ', 'Srm5.jpg', N'Sữa rửa mặt'
