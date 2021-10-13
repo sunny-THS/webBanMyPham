@@ -36,7 +36,6 @@ EXEC sp_AddSP N'30 DAYS MIRACLE SERUM', N'Chống lão hóa. Hạn chế nếp n
 EXEC sp_AddSP N'HUXLEY', N'Chống lão hóa. Hạn chế nếp nhăn và tình trạng chảy xệ của da.', 11, 300000, N'Mỹ', 'Serum5.jpg', N'Serum'
 EXEC sp_AddSP N'CENTELLA', N'Chống lão hóa. Hạn chế nếp nhăn và tình trạng chảy xệ của da.', 16, 230000, N'Pháp', 'Serum6.jpg', N'Serum'
 
-
 EXEC sp_AddSP N'MUGGWORT CREAM', N'Ngăn ngừa khô da. Làm chậm tiến trình lão hóa. Ngăn ngừa và hỗ trợ điều trị mụn. Bảo vệ da khỏi các tác nhân bên ngoài. Ngăn ngừa kích ứng da. Kiểm soát dầu thừa hiệu quả', 15, 1000000, N'Hàn Quốc', 'KemDuong1.jpg', N'Kem dưỡng'
 EXEC sp_AddSP N'HONEY GLOW CREAM', N'Ngăn ngừa khô da. Làm chậm tiến trình lão hóa. Ngăn ngừa và hỗ trợ điều trị mụn. Bảo vệ da khỏi các tác nhân bên ngoài. Ngăn ngừa kích ứng da. Kiểm soát dầu thừa hiệu quả', 12, 2000000, N'Anh', 'KemDuong2.jpg', N'Kem dưỡng'
 EXEC sp_AddSP N'ADVANCED SNAIL 92', N'Ngăn ngừa khô da. Làm chậm tiến trình lão hóa. Ngăn ngừa và hỗ trợ điều trị mụn. Bảo vệ da khỏi các tác nhân bên ngoài. Ngăn ngừa kích ứng da. Kiểm soát dầu thừa hiệu quả', 22, 3000000, N'Pháp', 'KemDuong3.jpg', N'Kem dưỡng'
@@ -44,14 +43,12 @@ EXEC sp_AddSP N'GREEN TEA AQUA SOOTHING GEL CREAM', N'Ngăn ngừa khô da. Làm
 EXEC sp_AddSP N'30 DAYS MIRACLE CREAM', N'Ngăn ngừa khô da. Làm chậm tiến trình lão hóa. Ngăn ngừa và hỗ trợ điều trị mụn. Bảo vệ da khỏi các tác nhân bên ngoài. Ngăn ngừa kích ứng da. Kiểm soát dầu thừa hiệu quả', 10, 2400000, N'Mỹ', 'KemDuong5.jpg', N'Kem dưỡng'
 EXEC sp_AddSP N'SNAIL TRUECICA', N'Ngăn ngừa khô da. Làm chậm tiến trình lão hóa. Ngăn ngừa và hỗ trợ điều trị mụn. Bảo vệ da khỏi các tác nhân bên ngoài. Ngăn ngừa kích ứng da. Kiểm soát dầu thừa hiệu quả', 3, 1200000, N'Nhật', 'KemDuong6.jpg', N'Kem dưỡng'
 
-
 EXEC sp_AddSP N'NEW HYALURON', N'là sản phẩm chuyên dùng để chăm sóc cho vùng da quanh mắt, giúp bạn giữ độ ẩm, làm giảm quầng thâm, bọng mắt và cải thiện các vùng da bị nếp nhăn.', 13, 500000, N'Mỹ', 'KemMat1.jpg', N'Dưỡng mắt'
 EXEC sp_AddSP N'CNP LABORATORY', N'là sản phẩm chuyên dùng để chăm sóc cho vùng da quanh mắt, giúp bạn giữ độ ẩm, làm giảm quầng thâm, bọng mắt và cải thiện các vùng da bị nếp nhăn.', 20, 500000, N'Nhật', 'KemMat2.jpg', N'Dưỡng mắt'
 EXEC sp_AddSP N'AHC TIME REWIND', N'là sản phẩm chuyên dùng để chăm sóc cho vùng da quanh mắt, giúp bạn giữ độ ẩm, làm giảm quầng thâm, bọng mắt và cải thiện các vùng da bị nếp nhăn.', 9, 450000, N'Nhật', 'KemMat3.jpg', N'Dưỡng mắt'
 EXEC sp_AddSP N'AHC YOUTH LASTING', N'là sản phẩm chuyên dùng để chăm sóc cho vùng da quanh mắt, giúp bạn giữ độ ẩm, làm giảm quầng thâm, bọng mắt và cải thiện các vùng da bị nếp nhăn.', 15, 300000, N'Pháp', 'KemMat4.jpg', N'Dưỡng mắt'
 EXEC sp_AddSP N'SENSIBIO EYE', N'là sản phẩm chuyên dùng để chăm sóc cho vùng da quanh mắt, giúp bạn giữ độ ẩm, làm giảm quầng thâm, bọng mắt và cải thiện các vùng da bị nếp nhăn.', 23, 400000, N'Mỹ', 'KemMat5.jpg', N'Dưỡng mắt'
 EXEC sp_AddSP N'LIFTACTIV SUPREME', N'là sản phẩm chuyên dùng để chăm sóc cho vùng da quanh mắt, giúp bạn giữ độ ẩm, làm giảm quầng thâm, bọng mắt và cải thiện các vùng da bị nếp nhăn.', 14, 300000, N'Canada', 'KemMat6.jpg', N'Dưỡng mắt'
-
 
 EXEC sp_AddSP N'BURT'S BEES BEESWAX LIP BALM', N'Dưỡng ẩm và ngăn chặn môi nứt nẻ. Chống lão hóa môi. Ngăn chặn ánh nắng mặt trời làm hại môi', 25, 400000, N'Anh', 'LipBalm1.jpg', N'Son dưỡng'
 EXEC sp_AddSP N'BURT'S BEES POMEGRANATE', N'Dưỡng ẩm và ngăn chặn môi nứt nẻ. Chống lão hóa môi. Ngăn chặn ánh nắng mặt trời làm hại môi', 15, 500000, N'Mỹ', 'LipBalm2.jpg', N'Son dưỡng'
