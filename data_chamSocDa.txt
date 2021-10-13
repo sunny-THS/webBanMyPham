@@ -6,7 +6,7 @@ EXEC sp_AddSP N'SENKA', N'Làm sạch sâu. Giúp thông thoáng lỗ chân lôn
 EXEC sp_AddSP N'BIODERMA', N'Làm sạch sâu. Giúp thông thoáng lỗ chân lông. Dưỡng ẩm cho da. Ngăn ngừa mụn. Thúc đẩy quá trình tái tạo tế bào da mới.', 10, 600000, N'Pháp', 'TayTrang3.jpg', N'Tẩy trang'
 EXEC sp_AddSP N'LA ROCHE-POSAY', N'Làm sạch sâu. Giúp thông thoáng lỗ chân lông. Dưỡng ẩm cho da. Ngăn ngừa mụn. Thúc đẩy quá trình tái tạo tế bào da mới.', 12, 450000, N'Pháp', 'TayTrang4.jpg', N'Tẩy trang'
 EXEC sp_AddSP N'COCOON', N'Làm sạch sâu. Giúp thông thoáng lỗ chân lông. Dưỡng ẩm cho da. Ngăn ngừa mụn. Thúc đẩy quá trình tái tạo tế bào da mới.', 16, 230000, N'Anh', 'TayTrang5.jpg', N'Tẩy trang'
-EXEC sp_AddSP N'PURBLEUET', N'Làm sạch sâu. Giúp thông thoáng lỗ chân lông. Dưỡng ẩm cho da. Ngăn ngừa mụn. Thúc đẩy quá trình tái tạo tế bào da mới.', 22, 550000, N'Mỹ', 'TayTrang6.jpg', N'Tẩy trang'
+EXEC sp_AddSP N'YVES ROCHER', N'Làm sạch sâu. Giúp thông thoáng lỗ chân lông. Dưỡng ẩm cho da. Ngăn ngừa mụn. Thúc đẩy quá trình tái tạo tế bào da mới.', 22, 550000, N'Mỹ', 'TayTrang6.jpg', N'Tẩy trang'
 
 EXEC sp_AddSP N'CICA CLEANSER', N'Tác dụng hỗ trợ ngăn ngừa và điều trị mụn. Se khít lỗ chân lông.Cân bằng độ ẩm cho da. Giúp da hấp thu dưỡng chất tốt hơn trong các bước dưỡng sau đó', 10, 500000, N'Mỹ', 'Srm1.jpg', N'Sữa rửa mặt'
 EXEC sp_AddSP N'LOW pH GOOD MORNING', N'Tác dụng hỗ trợ ngăn ngừa và điều trị mụn. Se khít lỗ chân lông.Cân bằng độ ẩm cho da. Giúp da hấp thu dưỡng chất tốt hơn trong các bước dưỡng sau đó', 15, 300000, N'Mỹ', 'Srm2.jpg', N'Sữa rửa mặt'
