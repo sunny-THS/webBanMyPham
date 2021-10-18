@@ -685,12 +685,12 @@ EXEC sp_AddSP N'Kem Ủ L''Oréal Paris Ngăn Rụng Tóc',N'Bổ sung Arginine 
 EXEC sp_AddSP N'Kem Ủ Tóc Ogx Renewing Argan Oil Of Morocco',N'chiết xuất tinh dầu Argan có tác dụng dưỡng ẩm, làm suôn mượt và làm mềm mái tóc khô rối, dễ gãy, tăng cường tính năng chăm sóc nhằm mang lại cho bạn một mái tóc óng ả và dễ vào nếp.',50,200000,N'Mỹ','KemU4.jpg',N' Kem ủ tóc'
 EXEC sp_AddSP N'Kem ủ tóc Tigi Bed Head Treatment Đỏ',N'Phục hồi Protein nuôi dưỡng tóc mềm mượt, khỏe mạnh.',50,260000,N'Mỹ','KemU5.jpg',N' Kem ủ tóc'
 EXEC sp_AddSP N'Kem Ủ L''Oréal Paris Hỗ Trợ Phục Hồi Tóc Hư Tổn ',N'Giúp nuôi dưỡng tóc, đầy lùi 5 dấu hiệu hư tổn: Khô xơ, chẻ ngọn, gãy rụng, xỉn màu, thô cứng.',50,270000,N'Mỹ','KemU6.jpg',N' Kem ủ tóc'
-EXEC sp_AddSP N'Thuốc Nhuộm Tóc Beautylabo Vanity Color Màu Nâu Rêu',N'Bảo vệ màu nhuộm lâu phai nhờ hợp chất Taurine & Theanine.',20,200000,N'Hàn Quốc','TNT1.jpg',N' Nhuộm tóc'
+EXEC sp_AddSP N'Thuốc nhuộm tóc Hello Bubble Màu 6A Dusty Ash',N'Bảo vệ màu nhuộm lâu phai nhờ hợp chất Taurine & Theanine.',20,200000,N'Hàn Quốc','TNT1.jpg',N' Nhuộm tóc'
 EXEC sp_AddSP N'Thuốc Nhuộm Tóc Beautylabo Vanity Color Màu Đen Khói',N'công thức độc đáo dạng tạo bọt chuyên biệt giúp bạn dễ dàng nhuộm tóc tại nhà, cho mái tóc nhuộm đều màu tuyệt đẹp .',10,200000,N'Hàn Quốc','TNT2.jpg',N' Nhuộm tóc'
-EXEC sp_AddSP N'Thuốc Nhuộm Tóc Tạo Bọt Beautylabo Hồng Đào Sakura ',N' Thuốc nhuộm dạng dịch lỏng nên rất dễ thẩm thấu tới tận chân tóc, đảm bảo cho mái tóc đẹp, đều màu.',30,400000,N'Hàn Quốc','TNT3.jpg',N' Nhuộm tóc'
-EXEC sp_AddSP N'Thuốc Nhuộm Tóc Beautylabo Vanity Color Màu Đen Khói',N'Công nghệ độc quyền bảo vệ nuôi dưỡng tóc 360 độ với gói cân bằng độ pH đưa tóc về trạng thái chuẩn sau khi nhuộm nhằm tránh hư tổn, kết hợp với gói serum sau nhuộm cung cấp dưỡng chất mang lại mái tóc suôn mềm óng ả.',30,200000,N'Nhật Bản','TNT4.jpg',N' Nhuộm tóc'
+EXEC sp_AddSP N'Thuốc Nhuộm Tóc Ezn Shaking Pudding Ash Lavender',N' Thuốc nhuộm dạng dịch lỏng nên rất dễ thẩm thấu tới tận chân tóc, đảm bảo cho mái tóc đẹp, đều màu.',30,400000,N'Hàn Quốc','TNT3.jpg',N' Nhuộm tóc'
+EXEC sp_AddSP N'Thuốc Nhuộm Tóc Ezn Shaking Pudding Ash Blue Gray',N'Công nghệ độc quyền bảo vệ nuôi dưỡng tóc 360 độ với gói cân bằng độ pH đưa tóc về trạng thái chuẩn sau khi nhuộm nhằm tránh hư tổn, kết hợp với gói serum sau nhuộm cung cấp dưỡng chất mang lại mái tóc suôn mềm óng ả.',30,200000,N'Nhật Bản','TNT4.jpg',N' Nhuộm tóc'
 EXEC sp_AddSP N'Thuốc Nhuộm Tóc Beautylabo Vanity Color Màu Nâu Tây Lạnh',N'Bảng màu nhuộm thời trang cá tính, theo xu hướng.Hiệu qủa vượt trội từ công thức nhuộm cải tiến.',40,130000,N'Hàn Quốc','TNT5.jpg',N' Nhuộm tóc'
-EXEC sp_AddSP N'Thuốc Nhuộm Tóc Tạo Bọt Beautylabo Nâu Chocolate', N'Không lưu lai thuốc thừa sau khi nhuộm.Thành phần an toàn da đầu, không gây kích ứng da.',30,100000,N'Mỹ','TNT6.jpg',N' Nhuộm tóc'
+EXEC sp_AddSP N'Thuốc Nhuộm Tóc Beautylabo Nâu Chocolate', N'Không lưu lai thuốc thừa sau khi nhuộm.Thành phần an toàn da đầu, không gây kích ứng da.',30,100000,N'Mỹ','TNT6.jpg',N' Nhuộm tóc'
 
 --chăm sóc cơ thể
 EXEC sp_AddSP N'Sữa tắm Bath & Body Works RESTFUL MOON', N'Phòng chống viêm lỗ chân lông. Việc mồ hôi, bụi bẩn không được làm sạch kỹ, lưu lại trên da lâu ngày sẽ dẫn đến tình trạng viêm lỗ chân lông', 15, 500000, N'Mỹ', 'ST1.jpg', N'Sữa tắm'
