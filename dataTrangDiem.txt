@@ -39,15 +39,15 @@ EXEC sp_AddSP N'Bảng Phấn Mắt Merzy The Heritage Shadow Palette S1 Amusing
 EXEC sp_AddSP N'Bảng Phấn Mắt Merzy The Heritage Shadow Palette S2 Joyful Coral',N'Độ lên màu chuẩn rõ hạn chế Fall-Out. Lớp nhũ óng ánh với độ phản sáng cao và bám dính tốt cả ngày.',20,430000,N'Ý','PM2.jpg',N' Phấn mắt'
 EXEC sp_AddSP N'Bảng Phấn Mắt Rom&nd Better Than Eyes M02 DRY ROSE',N'Kết cấu hạt phấn siêu nhỏ và mịn sẽ giúp chỉnh đốn vùng mắt xung quanh mà không cần dùng đến phấn phủ bột hay kem lót mắt, giúp xóa đi mọi nếp nhăn quanh mắt dù là nhỏ nhất ',20,410000,N'Mỹ','PM3.jpg',N' Phấn mắt'
 EXEC sp_AddSP N'Bảng Phấn Mắt Rom&nd Better Than Eyes M03 DRY COSMOS',N'Không bị rơi phấn, không gây vón cục khó chịu, dù dùng cọ hay dùng tay đều dễ tán đều.Bền màu, dộ bám màu cao, giữ màu lâu trong thời gian dài ',20,400000,N'Tây Ban Nha','PM4.jpg',N' Phấn mắt'
-EXEC sp_AddSP N'Bảng Phấn Mắt BH Cosmetics Ultimate Neutrals Eyeshadow Palette ',N'',20,400000,N'Anh','PM5.jpg',N' Phấn mắt'-- không thấy tên hãng
-EXEC sp_AddSP N'Bảng Phấn Mắt BH Cosmetics BFF Shadow Palette',N'',20,400000,N'Anh','PM6.jpg',N' Phấn mắt'-- không thấy tên hãng
+EXEC sp_AddSP N'Bảng Phấn Mắt BH Cosmetics Ultimate Neutrals Eyeshadow Palette ',N'Chất phấn bám lâu mềm và mịn. Hơn nữa còn rất tự nhiên khi bạn Blend đều bởi sắc màu nào cũng lên rất vừa phải và chuẩn màu.',20,400000,N'Anh','PM5.jpg',N' Phấn mắt'
+EXEC sp_AddSP N'Bảng Phấn Mắt BH Cosmetics BFF Shadow Palette',N'Đi cùng bảng mắt là một vỏ giấy bên ngoài và một miếng nhựa trong phủ lên về mặt các ô phấn, à các ô phấn trong palette này đều không có tên nhé',20,400000,N'Anh','PM6.jpg',N' Phấn mắt'
 
 EXEC sp_AddSP N'Phấn má hồng Wet n Wild Coloricon Ombre Blush ',N'màu má ombre có thể sử dụng để tạo hiệu ứng đậm nhạt lan toả trong make up chuyên nghiệp khi miết chổi theo 1 đường duy nhất thật đơn giản',30,200000,N'Mỹ','MH1.jpg',N' Má hồng'
 EXEC sp_AddSP N'Phấn má hồng Merzy The Heritage Blusher BL3 Burnt Sienna',N'Làm từ đá hổ phách với những gam màu trong trẻo dịu dành tôn lên nét đẹp vừa truyền thống vừa hiện đại, vừa nhẹ nhàng như có chất phấn mềm mịn,',20,210000,N'Anh','MH2.jpg',N' Má hồng'
 EXEC sp_AddSP N'Phấn má hồng Merzy The Heritage Blusher BL2 Terra Cotta',N' Khả năng kiềm dầu và giữ mài lâu trôi,cùng bảng màu cam đất hài hoà tự nhiên giúp gương mặt bạn nên xinh xắn rạng rỡ cuốn hút. ',40,200000,N'Đức','MH3.jpg',N' Má hồng'
 EXEC sp_AddSP N'Phấn má hồng I’m Afternoon Tae Blusher Palatte',N'Những tông màu nhẹ nhàng dễ dùng, lấu cảm hứng màu sắc và mùi hương từ các loại trà.',30,250000,N'Pháp','MH4.jpg',N' Má hồng'
 EXEC sp_AddSP N'Phấn má hồng Too Face Love Flush ',N'độ bám rất cao, giữ màu rất lâu, màu sắc lên tự nhiên với công thức đã được kiểm chứng giúp đôi má của bạn ửng hồng lến đến 16 tiếng. ',20,200000,N'Ý','MH5.jpg',N' Má hồng'
-EXEC sp_AddSP N'Phấn má hồng BH Cosmetics Essential Blush',N'',20,210000,N'Anh','MH6.jpg',N' Má hồng'-- không thấy tên hãng
+EXEC sp_AddSP N'Phấn má hồng BH Cosmetics Essential Blush',N'Chất phấn siêu mềm mịn, những hạt phấn li ti không chỉ có độ bám tốt. lâu phai màu mà còn giúp các nàng dễ dàng blend màu thật tự nhiên nữa.',20,210000,N'Anh','MH6.jpg',N' Má hồng'
 
 
 EXEC sp_AddSP N'Mascara Merzy The First Mascara Volume Perm VM1',N'Giúp hàng mi cong và dày một cách hoàn hảo.',30,210000,N'Mỹ','M1.jpg',N' Mascara'
