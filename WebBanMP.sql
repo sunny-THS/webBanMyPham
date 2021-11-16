@@ -94,7 +94,6 @@ CREATE TABLE HOADON (
     ID VARCHAR(10) NOT NULL, -- CREATE AUTO
     NGTAO DATE, -- NGÀY TẠO HÓA ĐƠN
     DONGIA FLOAT, -- TỔNG (SỐ LƯỢNG * ĐƠN GIÁ)
-    TINHTRANG NVARCHAR(50), -- CHƯA GIAO, ĐÃ GIAO
     ID_KH VARCHAR(10) REFERENCES KHACHHANG(ID),
     CONSTRAINT PK_HD PRIMARY KEY (ID)
 )
@@ -404,6 +403,75 @@ AS
 	END CATCH
 GO
 
+CREATE PROC sp_SetDG -- SET ĐƠN GIÁ
+@tenSP NVARCHAR(50),
+@gia FLOAT
+AS
+	BEGIN
+		DECLARE @maSP VARCHAR(10)
+		SELECT @maSP = ID FROM SANPHAM WHERE TENSP = @tenSP
+
+		INSERT DONGIA(ID_SP, GIA)
+		VALUES (@maSP, @gia)
+	END
+GO
+
+CREATE PROC sp_GetMaHD
+@maHD VARCHAR(10) OUTPUT
+AS
+	SELECT @maHD = DBO.fn_autoIDHD()
+GO
+
+CREATE PROC sp_AddHD
+@maHD VARCHAR(10),
+@tenKH NVARCHAR(50),
+@tenSP NVARCHAR(MAX),
+@soLuong INT
+AS
+	BEGIN TRY
+		DECLARE @maKH VARCHAR(10), @maSP VARCHAR(5)
+
+		IF NOT EXISTS (SELECT * FROM HOADON WHERE ID = @maHD)
+		BEGIN
+			INSERT HOADON(ID) SELECT @maHD
+
+			-- LẤY MÃ KHÁCH HÀNG
+			SELECT @maKH = ID FROM KHACHHANG WHERE ID_TK = (SELECT ID_TAIKHOAN FROM THONGTINTAIKHOAN WHERE HOTEN = @tenKH)
+
+			-- ADD MÃ KHÁCH HÀNG VÀ NHÂN VIÊN VÀO HÓA ĐƠN
+			UPDATE HOADON SET ID_KH = @maKH WHERE ID = @maHD
+		END
+
+		-- LẤY MÃ SẢN PHẨM 
+		SELECT @maSP = ID FROM SANPHAM WHERE TENSP = @tenSP
+
+		-- kiểm tra kho
+		DECLARE @MESSAGE NVARCHAR(70) = @tenSP + N' đã hết hàng'
+		IF @soLuong > (SELECT SOLUONG FROM SANPHAM WHERE TENSP = @tenSP)
+			THROW 51000, @MESSAGE, 1;
+
+		-- THÊM THÔNG TIN CHO HÓA ĐƠN
+		INSERT CHITIETHD(ID_HD, ID_SP, SOLUONG) SELECT @maHD, @maSP, @soLuong
+
+		-- cập nhật lại số lượng sản phẩm
+		UPDATE SANPHAM SET SOLUONG = SOLUONG - @soLuong WHERE ID = @maSP
+
+		-- CẬP NHẬT ĐƠN GIÁ ---------------------- kiểm tra ngày mới nhất trong đơn giá
+		DECLARE @donGia FLOAT -- đơn giá của sản phẩm x
+
+		SELECT TOP 1 @donGia = SUM(@soLuong * GIA)
+		FROM DONGIA
+		WHERE ID_SP = @maSP
+		GROUP BY NGCAPNHAT
+		ORDER BY NGCAPNHAT DESC
+		
+		UPDATE HOADON SET DONGIA = DONGIA + @donGia WHERE ID = @maHD
+	END TRY
+	BEGIN CATCH
+		EXEC sp_GetErrorInfo;
+	END CATCH
+GO
+
 --ID VARCHAR(5) NOT NULL, -- CREATE AUTO
 --TENSP NVARCHAR(50), -- TÊN SẢN PHẨM
 --MOTA NVARCHAR(MAX), -- MÔ TẢ
@@ -500,6 +568,57 @@ AS
         -- tạo thông tin người dùng
         INSERT THONGTINTAIKHOAN(ID, HOTEN, NGSINH, GTINH, EMAIL, SDT, DCHI, ID_TAIKHOAN)
         VALUES(DBO.fn_autoIDTTND(@ID), UPPER(@hoTen), @ngSinh, @GTINH, @email, @sdt, @dChi, @ID)
+	END TRY
+	BEGIN CATCH
+		EXEC sp_GetErrorInfo;
+	END CATCH
+GO
+
+CREATE PROC sp_UpTTTK
+@maTK VARCHAR(15),
+@hoTen NVARCHAR(50),
+@ngSinh DATE,
+@gioiTinh NVARCHAR(5),
+@email VARCHAR(50),
+@sdt VARCHAR(11),
+@dChi NVARCHAR(50)
+AS
+	BEGIN TRY
+		DECLARE @GTINH BIT = 0
+        IF (UPPER(@gioiTinh) = N'NAM')
+            SET @GTINH = 1;
+
+        -- tạo thông tin người dùng
+		UPDATE THONGTINTAIKHOAN SET HOTEN = @hoTen, 
+									NGSINH=@ngSinh, 
+									GTINH=@GTINH, 
+									EMAIL=@email,
+									SDT=@sdt,
+									DCHI=@dChi
+				WHERE ID_TAIKHOAN=@maTK
+
+		SELECT N'SUCCESS' 'Message'
+	END TRY
+	BEGIN CATCH
+		EXEC sp_GetErrorInfo;
+	END CATCH
+GO
+
+CREATE PROC sp_CKUsername
+@userName VARCHAR(50),
+@GRNAME NVARCHAR(50)
+AS
+	BEGIN TRY
+		DECLARE @IDGR INT
+		EXEC @IDGR = sp_getIDGR @GRNAME -- id gr
+
+		DECLARE @IDTK VARCHAR(15);
+		SELECT @IDTK = ID FROM TAIKHOAN WHERE USERNAME = @userName
+
+		IF EXISTS(SELECT * FROM TAIKHOAN WHERE ID_GR = @IDGR AND USERNAME = @userName)
+			THROW 51000, N'Username đã tồn tại.', 1;
+
+		SELECT N'ok' 'Message'
 	END TRY
 	BEGIN CATCH
 		EXEC sp_GetErrorInfo;
