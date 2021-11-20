@@ -425,6 +425,7 @@ GO
 CREATE PROC sp_AddHD
 @maHD VARCHAR(10),
 @tenKH NVARCHAR(50),
+@username VARCHAR(50),
 @tenSP NVARCHAR(MAX),
 @soLuong INT
 AS
@@ -436,7 +437,7 @@ AS
 			INSERT HOADON(ID) SELECT @maHD
 
 			-- LẤY MÃ KHÁCH HÀNG
-			SELECT @maKH = ID FROM KHACHHANG WHERE ID_TK = (SELECT ID_TAIKHOAN FROM THONGTINTAIKHOAN WHERE HOTEN = @tenKH)
+			SELECT @maKH = ID FROM KHACHHANG WHERE ID_TK = (SELECT ID_TAIKHOAN FROM THONGTINTAIKHOAN tttk join TAIKHOAN on tttk.ID_TAIKHOAN=TAIKHOAN.ID WHERE HOTEN = @tenKH and ID_GR = 3 and USERNAME = @username)
 
 			-- ADD MÃ KHÁCH HÀNG VÀ NHÂN VIÊN VÀO HÓA ĐƠN
 			UPDATE HOADON SET ID_KH = @maKH WHERE ID = @maHD
@@ -466,6 +467,8 @@ AS
 		ORDER BY NGCAPNHAT DESC
 		
 		UPDATE HOADON SET DONGIA = DONGIA + @donGia WHERE ID = @maHD
+
+		SELECT N'SUCCESS' 'Message'
 	END TRY
 	BEGIN CATCH
 		EXEC sp_GetErrorInfo;
@@ -568,6 +571,7 @@ AS
         -- tạo thông tin người dùng
         INSERT THONGTINTAIKHOAN(ID, HOTEN, NGSINH, GTINH, EMAIL, SDT, DCHI, ID_TAIKHOAN)
         VALUES(DBO.fn_autoIDTTND(@ID), UPPER(@hoTen), @ngSinh, @GTINH, @email, @sdt, @dChi, @ID)
+		SELECT N'SUCCESS' 'Message'
 	END TRY
 	BEGIN CATCH
 		EXEC sp_GetErrorInfo;
@@ -668,8 +672,8 @@ ADD CONSTRAINT DF_ID_NV DEFAULT DBO.fn_autoIDNV() FOR ID
 
 ALTER TABLE HOADON 
 ADD CONSTRAINT DF_NGTAO_HD DEFAULT GETDATE() FOR NGTAO,
-    CONSTRAINT DF_TT DEFAULT N'CHƯA GIAO' FOR TINHTRANG,
-    CONSTRAINT DF_ID DEFAULT DBO.fn_autoIDHD() FOR ID
+    CONSTRAINT DF_ID DEFAULT DBO.fn_autoIDHD() FOR ID,
+	CONSTRAINT DF_DONGIA DEFAULT 0 FOR DONGIA
 
 ALTER TABLE CHITIETHD
 ADD CONSTRAINT CK_SL CHECK (SOLUONG > 0)
@@ -698,6 +702,7 @@ EXEC sp_AddAcc 'tuhueson', 'tuhueson@123456789', N'Nhân viên', N'Từ Huệ S�
 EXEC sp_AddAcc 'leductai', 'leductai@123456789', N'Nhân viên', N'Lê Đức Tài', '12-4-2001', N'nam', 'leductai@gmail.com', '000000000', null
 EXEC sp_AddAcc 'huynhmytran', 'huynhmytran@123456789', N'Nhân viên', N'Huỳnh Mỹ Trân', '9-2-2001', N'nữ', 'huynhmytran@gmail.com', '000000000', null
 EXEC sp_AddAcc 'tranthanhtam', 'tranthanhtam@123456789', N'Nhân viên', N'Trần Thành Tâm', '12-21-2001', N'nam', 'tranthanhtam@gmail.com', '000000000', null
+EXEC sp_AddAcc 'tuhueson', '123456789', N'Khách Hàng', N'Từ Huệ Sơn', '2-5-2001', N'nam', 'tuhueson@gmail.com', '0938252793', null
 
 -- BẢNG DANH MỤC
 EXEC sp_AddDMUC N'Chăm sóc da' 
@@ -982,4 +987,5 @@ EXEC sp_AddSP N'Son Kem Lì Hera Sensual Spicy Nude Gloss', N'Chất son lỏng 
 
 
 -- SELECT * FROM SANPHAM JOIN DONGIA ON SANPHAM.ID = DONGIA.ID_SP -- SHOW
-select * from SanPham
+select * from HOADON
+select * from CHITIETHD
