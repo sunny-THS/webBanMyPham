@@ -653,6 +653,29 @@ AS
 	END CATCH
 GO
 
+CREATE PROC sp_ChangeAcc
+@userName VARCHAR(50), -- THÔNG TIN TÀI KHOẢN
+@pw VARCHAR(50),
+@GRNAME NVARCHAR(50)
+AS
+	BEGIN TRY
+		DECLARE @IDGR INT
+		EXEC @IDGR = sp_getIDGR @GRNAME -- id gr
+
+		DECLARE @IDTK VARCHAR(15);
+		SELECT @IDTK = ID FROM TAIKHOAN WHERE USERNAME = @userName
+
+		DECLARE	@createPW VARBINARY(MAX) = SubString(DBO.fn_hash(@IDTK), 1, len(DBO.fn_hash(@IDTK))/2) + DBO.fn_hash(@pw + @IDTK)
+
+		UPDATE TAIKHOAN SET PW = @createPW WHERE ID = @IDTK AND ID_GR = @IDGR
+
+		SELECT N'SUCCESS' 'Message'
+	END TRY
+	BEGIN CATCH
+		EXEC sp_GetErrorInfo;
+	END CATCH
+GO
+
 -- TẠO RÀNG BUỘC
 ALTER TABLE THONGTINTAIKHOAN
 ADD CONSTRAINT DF_NGTAO_TTTK DEFAULT GETDATE() FOR NGTAO
@@ -698,12 +721,11 @@ INSERT GRTK VALUES(N'KHÁCH HÀNG', '02')
 
 -- BẢNG TAIKHOAN
 EXEC sp_AddAcc 'admin', 'admin@123456789', N'ADMIN', N'Admin', '2-5-2001', N'nam', 'admin@gmail.com', '000000000', null
-EXEC sp_AddAcc 'tuhueson', 'tuhueson@123456789', N'Nhân viên', N'Từ Huệ Sơn', '2-5-2001', N'nam', 'tuhueson@gmail.com', '000000000', null
-EXEC sp_AddAcc 'leductai', 'leductai@123456789', N'Nhân viên', N'Lê Đức Tài', '12-4-2001', N'nam', 'leductai@gmail.com', '000000000', null
-EXEC sp_AddAcc 'huynhmytran', 'huynhmytran@123456789', N'Nhân viên', N'Huỳnh Mỹ Trân', '9-2-2001', N'nữ', 'huynhmytran@gmail.com', '000000000', null
-EXEC sp_AddAcc 'tranthanhtam', 'tranthanhtam@123456789', N'Nhân viên', N'Trần Thành Tâm', '12-21-2001', N'nam', 'tranthanhtam@gmail.com', '000000000', null
-EXEC sp_AddAcc 'tuhueson', '123456789', N'Khách Hàng', N'Từ Huệ Sơn', '2-5-2001', N'nam', 'tuhueson@gmail.com', '0938252793', null
 
+EXEC sp_AddAcc 'tuhueson', '123456789', N'Khách Hàng', N'Từ Huệ Sơn', '2-5-2001', N'nam', 'tuhueson@gmail.com', '0938252793', null
+EXEC sp_AddAcc 'leductai', '123456789', N'Khách Hàng', N'Lê Đức Tài', '12-4-2001', N'nam', 'leductai@gmail.com', '000000000', null
+EXEC sp_AddAcc 'huynhmytran', '123456789', N'Khách Hàng', N'Huỳnh Mỹ Trân', '9-2-2001', N'nữ', 'huynhmytran@gmail.com', '000000000', null
+EXEC sp_AddAcc 'tranthanhtam', '123456789', N'Khách Hàng', N'Trần Thành Tâm', '12-21-2001', N'nam', 'tranthanhtam@gmail.com', '000000000', null
 -- BẢNG DANH MỤC
 EXEC sp_AddDMUC N'Chăm sóc da' 
 EXEC sp_AddDMUC N'Chăm sóc cơ thể' 
@@ -987,5 +1009,7 @@ EXEC sp_AddSP N'Son Kem Lì Hera Sensual Spicy Nude Gloss', N'Chất son lỏng 
 
 
 -- SELECT * FROM SANPHAM JOIN DONGIA ON SANPHAM.ID = DONGIA.ID_SP -- SHOW
-select * from HOADON
+select * from TAIKHOAN
 select * from CHITIETHD
+
+exec sp_CKAcc 'tuhueson', 'tuhueson522001+-*/', N'Khách Hàng'
