@@ -4,9 +4,9 @@
 ## Thành viên
 | STT   | MSSV          | Họ Tên            | Công Việc | Hoàn Thành    | Đánh Giá  |
 | :---: | :---:         | ---               | ---       | :---:         | :---:     |
-| 1     | 2001190791    | Từ Huệ Sơn        | Tạo csdl       | ...           | ...       |
-| 2     | 2001190876    | Huỳnh Mỹ Trân     | Thêm dữ liệu       | ...           | ...       |
-| 3     | 2001190794    | Lê Đức Tài        | Thêm dữ liệu       | ...           | ...       |
+| 1     | 2001190791    | Từ Huệ Sơn        | Tạo CSDL      | ...           | ...       |
+| 2     | 2001190876    | Huỳnh Mỹ Trân     | Thêm dữ liệu<br>Thiết kế giao diện       | ...           | ...       |
+| 3     | 2001190794    | Lê Đức Tài        | Thêm dữ liệu      | ...           | ...       |
 | 4     | 2001190248    | Trần Thành Tâm    | Thêm dữ liệu       | ...           | ...       |
 
 ## Khái quát
