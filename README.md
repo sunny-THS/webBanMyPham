@@ -2,12 +2,12 @@
 đồ án web mvc
 
 ## Thành viên
-| STT   | MSSV          | Họ Tên            | Công Việc | Hoàn Thành    | Đánh Giá  |
-| :---: | :---:         | ---               | ---       | :---:         | :---:     |
-| 1     | 2001190791    | Từ Huệ Sơn        | Tạo CSDL      | ...           | ...       |
-| 2     | 2001190876    | Huỳnh Mỹ Trân     | Thêm dữ liệu<br>Thiết kế giao diện       | ...           | ...       |
-| 3     | 2001190794    | Lê Đức Tài        | Thêm dữ liệu      | ...           | ...       |
-| 4     | 2001190248    | Trần Thành Tâm    | Thêm dữ liệu       | ...           | ...       |
+| STT   | MSSV          | Họ Tên         | Công Việc | Hoàn Thành    | Đánh Giá  |
+| :---: | :---:         | ---            | ---       | :---:         | :---:     |
+| 1     | 2001190791    | Từ Huệ Sơn     | Tạo CSDL <br> Code chính các chức năng <br> Thiết kế giao diện  | 100% | A |
+| 2     | 2001190876    | Huỳnh Mỹ Trân  | Thêm dữ liệu <br> Thiết kế giao diện <br> PowerPoint | 100% | B |
+| 3     | 2001190794    | Lê Đức Tài     | Thêm dữ liệu <br> Code phụ <br> PowerPoint    | 100% | B |
+| 4     | 2001190248    | Trần Thành Tâm | Thêm dữ liệu <br> Code phụ | 100% | B |
 
 ## Khái quát
 ### Ngôn ngữ
