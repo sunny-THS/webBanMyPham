@@ -1011,5 +1011,6 @@ EXEC sp_AddSP N'Son Kem Lì Hera Sensual Spicy Nude Gloss', N'Chất son lỏng 
 -- SELECT * FROM SANPHAM JOIN DONGIA ON SANPHAM.ID = DONGIA.ID_SP -- SHOW
 select * from TAIKHOAN
 select * from CHITIETHD
+select * from SANPHAM
 
 exec sp_CKAcc 'tuhueson', 'tuhueson522001+-*/', N'Khách Hàng'
