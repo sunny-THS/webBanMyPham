@@ -1012,5 +1012,7 @@ EXEC sp_AddSP N'Son Kem Lì Hera Sensual Spicy Nude Gloss', N'Chất son lỏng 
 select * from TAIKHOAN
 select * from CHITIETHD
 select * from SANPHAM
+select * from DANHMUC
+select * from CHITIETDANHMUC
 
 exec sp_CKAcc 'tuhueson', 'tuhueson522001+-*/', N'Khách Hàng'
