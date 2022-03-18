@@ -22,9 +22,34 @@ CREATE TABLE THONGTINTAIKHOAN (
     NGTAO DATE, -- NGÀY TẠO
     EMAIL VARCHAR(50) unique, -- ĐỊA CHỈ EMAIL
     SDT VARCHAR(11) unique, -- SDT (chỉ 10 số theo format của Việt Nam)
-    DCHI NVARCHAR(50), -- ĐỊA CHỈ NHÀ / ĐỊA CHỈ GIAO
     ID_TAIKHOAN VARCHAR(15) REFERENCES TAIKHOAN(ID),
     CONSTRAINT PK_TTTK PRIMARY KEY (ID)
+)
+CREATE TABLE TINHTHANH (
+	ID INT IDENTITY NOT NULL,
+	TEN NVARCHAR(50),
+	CONSTRAINT PK_TINHTHANH PRIMARY KEY (ID)
+)
+CREATE TABLE QUANHUYEN (
+	ID INT IDENTITY NOT NULL,
+	TEN NVARCHAR(50),
+	ID_TINHTHANH INT REFERENCES TINHTHANH(ID),
+	CONSTRAINT PK_QH PRIMARY KEY (ID),
+)
+CREATE TABLE XAPHUONG (
+	ID INT IDENTITY NOT NULL,
+	TEN NVARCHAR(50),
+	ID_QH INT REFERENCES QUANHUYEN(ID),
+	CONSTRAINT PK_XP PRIMARY KEY (ID)
+)
+CREATE TABLE DIACHIGH ( -- địa chỉ giao hàng
+	ID INT IDENTITY NOT NULL,
+	SONHA NVARCHAR(50),
+	IDTINH INT REFERENCES TINHTHANH(ID), -- TỈNH THÀNH
+	IDHUYEN INT REFERENCES QUANHUYEN(ID), -- HUYỆN
+	IDXA INT REFERENCES XAPHUONG(ID), -- XÃ
+	ID_TTTK VARCHAR(20) REFERENCES THONGTINTAIKHOAN(ID),
+	CONSTRAINT PK_DCGH PRIMARY KEY (ID, ID_TTTK)
 )
 CREATE TABLE KHACHHANG (
     ID VARCHAR(10) NOT NULL, -- CREATE AUTO
@@ -64,16 +89,16 @@ CREATE TABLE SANPHAM (
     ID_LOAI VARCHAR(6) REFERENCES LOAISP(ID),
     CONSTRAINT PK_SP PRIMARY KEY (ID)
 )
-CREATE TABLE LOAIKM (-------/////////
-	ID_DANHMUC INT REFERENCES DANHMUC(ID),
-    ID_SP VARCHAR(5) REFERENCES SANPHAM(ID)
-)
+
 CREATE TABLE KHUYENMAI (
     ID INT IDENTITY NOT NULL,
     GIATRI FLOAT, -- GIÁ TRỊ SALE
     NGCAPNHAT DATETIME, -- NGÀY CẬP NHẬT SALE LẤY NGÀY GẦN NHẤT
     NGKETTHUC DATETIME, -- NGÀY KẾT THÚC
-    ID_KH VARCHAR(10) REFERENCES KHACHHANG(ID),
+	HIEULUC BIT, -- hiệu lực (1 là còn hiệu lực)
+    ID_KH VARCHAR(10) REFERENCES KHACHHANG(ID), -- khuyến mãi dành cho khách hàng nào (nếu null là dành cho tất cả)
+	ID_LOAI VARCHAR(6) REFERENCES LOAISP(ID), -- dành cho 1 loại sp nào đó vd như son, phấn ....
+    ID_SP VARCHAR(5) REFERENCES SANPHAM(ID), -- dành cho sp cụ thể nào đó
     CONSTRAINT PK_SALE PRIMARY KEY (ID)
 )
 CREATE TABLE DONGIA (
@@ -87,7 +112,7 @@ CREATE TABLE HOADON (
     ID VARCHAR(10) NOT NULL, -- CREATE AUTO
     NGTAO DATE, -- NGÀY TẠO HÓA ĐƠN
     DONGIA FLOAT, -- TỔNG (SỐ LƯỢNG * ĐƠN GIÁ)
-    ID_KH VARCHAR(10) REFERENCES KHACHHANG(ID),
+    ID_KH VARCHAR(10) REFERENCES KHACHHANG(ID), -- Hiển thị các thông tin cơ bản của Khách Hàng
     CONSTRAINT PK_HD PRIMARY KEY (ID)
 )
 CREATE TABLE CHITIETHD (
@@ -95,30 +120,9 @@ CREATE TABLE CHITIETHD (
     ID_HD VARCHAR(10) REFERENCES HOADON(ID),
     ID_SP VARCHAR(5) REFERENCES SANPHAM(ID),
     SOLUONG INT, -- SỐ LƯỢNG > 0, số lượng bán
+	IDKM INT REFERENCES KHUYENMAI(ID),
     CONSTRAINT PK_CTHD PRIMARY KEY (ID, ID_HD) 
 )
-CREATE TABLE PHIEUNHAP (
-    ID VARCHAR(10) NOT NULL, -- CREATE AUTO
-    NGTAO DATE, -- NGÀY TẠO PHIẾU NHẬP
-    DONGIA FLOAT, -- TỔNG (SỐ LƯỢNG * ĐƠN GIÁ)
-    ID_KH VARCHAR(10) REFERENCES KHACHHANG(ID),
-    CONSTRAINT PK_PN PRIMARY KEY (ID)
-)
-CREATE TABLE CHITIETPN (
-    ID INT IDENTITY NOT NULL,
-    ID_PN VARCHAR(10) REFERENCES PHIEUNHAP(ID),
-    ID_SP VARCHAR(5) REFERENCES SANPHAM(ID),
-    SOLUONG INT, -- SỐ LƯỢNG > 0, số lượng bán
-    CONSTRAINT PK_CTPN PRIMARY KEY (ID, ID_PN) 
-)
-CREATE TABLE THONGKETRUYCAP (
-    ID INT IDENTITY NOT NULL,
-    ISONL BIT, -- KIỂM TRA CÒN ONL - DEFAULT: 1(ON)
-    NGGHI DATETIME, -- NGÀY GHI NHẬN
-    NGOFF DATETIME, -- KHI NGƯỜI DÙNG KẾT THÚC PHIÊN
-    CONSTRAINT PK_TKTC PRIMARY KEY (ID)   
-)
-GO
 
 -- CREATE TABLE VIEW 
 CREATE VIEW rndVIEW
@@ -999,6 +1003,15 @@ EXEC sp_AddSP N'Son Kem Lì 3CE Kem Cloud Lip Tint', N'Mang cảm giác ấm áp
 EXEC sp_AddSP N'Son Kem Lì Romand Zero Velvet Tint ', N'Son Kem Lì Wet n Wild MegaLast Liquid Catsuit Matte Lipstick có khả năng bám màu cực “trâu” luôn, kéo dài cả ngày bất chấp bạn ăn uống, lau miệng nhiều. Son cũng không hề bám vào cốc hay dây ra khẩu trang.', 70, 170000, N'Hà Lan', 'SK4.jpg', N'Son kem', N'Trang điểm'
 EXEC sp_AddSP N'Son Kem Lì Merzy The Heritage Velvet Tint', N'Chất son được cải tiến cho độ lên màu đậm rõ và duy trì sự rạng rỡ như mới được apply lên môi trong nhiều giờ liền . ', 20, 100000, N'Ý', 'SK5.png', N'Son kem', N'Trang điểm'
 EXEC sp_AddSP N'Son Kem Lì Hera Sensual Spicy Nude Gloss', N'Chất son lỏng nhẹ, mịn mướt với các hạt nhũ óng ánh, cho môi căng tràn, đầy đặn và làm mờ hoàn hảo vết nhăn, rãnh môi.', 40, 100000, N'Anh', 'SK6.jpg', N'Son kem', N'Trang điểm'
+
+--------------------------------------------------------------------------------
+-- NHẬP CÁC BẢNG TINHTHANH, QUANHUYEN, XAPHUONG
+
+--------------------------------------------------------------------------------
+
+
+
+
 
 
 -- SELECT * FROM SANPHAM JOIN DONGIA ON SANPHAM.ID = DONGIA.ID_SP -- SHOW
