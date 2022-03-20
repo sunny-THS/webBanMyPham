@@ -1010,7 +1010,7 @@ EXEC sp_AddSP N'Son Kem Lì Hera Sensual Spicy Nude Gloss', N'Chất son lỏng 
 INSERT TINHTHANH
 VALUES(N'An Giang')
 INSERT TINHTHANH
-VALUES(N'Bà Rịa - Vung Tàu')
+VALUES(N'Bà Rịa - Vũng Tàu')
 INSERT TINHTHANH
 VALUES(N'Bạc Liêu')
 INSERT TINHTHANH
