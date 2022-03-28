@@ -151,6 +151,8 @@ namespace WebBanMyPham.Controllers
 
         public ActionResult DatHang()
         {
+            return RedirectToAction("TTGioHang", "ThongTinGioHang");
+            /*
             // check người dùng 
             if (Session["ThongTinNguoiDung"] == null)
                 return RedirectToAction("DangNhap", "Auth");
@@ -177,6 +179,9 @@ namespace WebBanMyPham.Controllers
 
             // xuất hóa đơn
             return RedirectToAction("HoaDon");
+            */
+
+
         }
 
         public ActionResult HoaDon()

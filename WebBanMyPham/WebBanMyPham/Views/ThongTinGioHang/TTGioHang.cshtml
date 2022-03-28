@@ -1,0 +1,292 @@
+﻿@model List<WebBanMyPham.Models.HoaDon>
+
+@{
+    ViewBag.Title = "TTGioHang";
+    Layout = "~/Views/Shared/_LayoutPageCommonClient.cshtml";
+}
+
+<script>
+    function hamDropdown1() {
+        document.querySelector(".noidung_dropdown1").classList.toggle("hienThi");
+    }
+
+    window.onclick = function (e) {
+        if (!e.target.matches('.nut_dropdown1')) {
+            var noiDungDropdown = document.querySelector(".noidung_dropdown1");
+            if (noiDungDropdown.classList.contains('hienThi')) {
+                noiDungDropdown.classList.remove('hienThi');
+            }
+        }
+    }
+</script>
+
+<script>
+    function hamDropdown2() {
+        document.querySelector(".noidung_dropdown2").classList.toggle("hienThi");
+    }
+
+    window.onclick = function (e) {
+        if (!e.target.matches('.nut_dropdown2')) {
+            var noiDungDropdown = document.querySelector(".noidung_dropdown2");
+            if (noiDungDropdown.classList.contains('hienThi')) {
+                noiDungDropdown.classList.remove('hienThi');
+            }
+        }
+    }
+</script>
+
+<script>
+    function hamDropdown3() {
+        document.querySelector(".noidung_dropdown3").classList.toggle("hienThi");
+    }
+
+    window.onclick = function (e) {
+        if (!e.target.matches('.nut_dropdown3')) {
+            var noiDungDropdown = document.querySelector(".noidung_dropdown3");
+            if (noiDungDropdown.classList.contains('hienThi')) {
+                noiDungDropdown.classList.remove('hienThi');
+            }
+        }
+    }
+</script>
+
+<style>
+    #container {
+        display: grid;
+        grid-template-columns: 500px 500px;
+        grid-template-rows: 500px 400px;
+    }
+    /* Nút Dropdown*/
+    .nut_dropdown1 {
+        background-color: white;
+        color: black;
+        padding: 16px;
+        font-size: 16px;
+        border: none;
+    }
+    /* Nút Dropdown*/
+    .nut_dropdown2 {
+        background-color: white;
+        color: black;
+        padding: 16px;
+        font-size: 16px;
+        border: none;
+    }
+
+    /* Nút Dropdown*/
+    .nut_dropdown3 {
+        background-color: white;
+        color: black;
+        padding: 16px;
+        font-size: 16px;
+        border: none;
+    }
+
+    /* Thiết lập vị trí cho thẻ div với class dropdown*/
+    .dropdown {
+        position: relative;
+        display: inline-block;
+    }
+
+    /* Nội dung Dropdown */
+    .noidung_dropdown1 {
+        /*Ẩn nội dụng các đường dẫn*/
+        display: none;
+        position: absolute;
+        background-color: #f1f1f1;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+    }
+    /* Nội dung Dropdown */
+    .noidung_dropdown2 {
+        /*Ẩn nội dụng các đường dẫn*/
+        display: none;
+        position: absolute;
+        background-color: #f1f1f1;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+    }
+
+    /* Nội dung Dropdown */
+    .noidung_dropdown3 {
+        /*Ẩn nội dụng các đường dẫn*/
+        display: none;
+        position: absolute;
+        background-color: #f1f1f1;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+    }
+
+      /* Thiết kế style cho các đường dẫn tronng Dropdown */
+        .noidung_dropdown1 a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+    /* Thiết kế style cho các đường dẫn tronng Dropdown */
+    .noidung_dropdown2 a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+    }
+
+    /* Thiết kế style cho các đường dẫn tronng Dropdown */
+    .noidung_dropdown3 a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+    }
+
+    .hienThi {
+        display: block;
+    }
+</style>
+
+
+
+<div id="container">
+    <div class="item item1">
+        <br />
+        <h3>Thông Tin Giỏ Hàng</h3>
+        <br />
+        <label>Bạn đã có tài khoản ? <a href="#">Đăng nhập</a></label>
+        <br />
+
+        <table>
+            <tr>
+                <td colspan="2" style="width: 500px">
+                    <input id="floatingInputSignin" class="form-control mb-2" type="text" placeholder="Họ và Tên" title="nhap ho va ten" required />
+                </td>
+            </tr>
+
+            <tr>
+                <td style="width: 200px">
+                    <input id="floatingInputSignin" class="form-control mb-2" type="email" placeholder="Email" title="nhap email " />
+
+
+                </td>
+                <td>
+                    <input id="floatingInputSignin" class="form-control mb-2" placeholder="Số điện thoại" type="number" title="nhap sdt" required />
+
+
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input id="floatingInputSignin" class="form-control mb-2" name="#" placeholder="Địa chỉ" title="nhap sdt" required />
+
+
+                </td>
+            </tr>
+
+
+        </table>
+
+        <table>
+            <tr>
+                <td>
+                    <div class="dropdown">
+                        <button onclick="hamDropdown3()" class="nut_dropdown3">Tỉnh/Thành phố</button>
+                        <div class="noidung_dropdown3">
+                            <a href="#"></a>
+                            <a href="#"></a>
+                            <a href="#"></a>
+                        </div>
+                    </div>
+                </td>
+
+                <td>
+                    <div class="dropdown">
+                        <button onclick="hamDropdown1()" class="nut_dropdown1">Quận/huyện</button>
+                        <div class="noidung_dropdown1">
+                            <a href="#"></a>
+                            <a href="#"></a>
+                            <a href="#"></a>
+                        </div>
+                    </div>
+                </td>
+
+                <td>
+                    <div class="dropdown" style="margin-left:30px">
+                        <button onclick="hamDropdown2()" class="nut_dropdown2">Phường/xã</button>
+                        <div class="noidung_dropdown2">
+                            <a href="#"></a>
+                            <a href="#"></a>
+                            <a href="#"></a>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+
+        </table>
+
+        <br />
+        <div>
+            <h5>Phương thức vận chuyển</h5>
+        </div>
+        <table style="border: solid 1px;  border-color:lightgrey" ; width="500px">
+            <br />
+            <tr>
+                <td>
+
+                    <input id="Checkbox1" type="checkbox" style="margin-left:10px" title="chon tick vao o" />
+                    <label style="margin-top:10px">Giao hàng tiêu chuẩn</label>
+                    <br />
+                    <br />
+                    <input id="Checkbox1" type="checkbox" style="margin-left:10px" title="chon tick vao o" required />
+                    <label style="margin-bottom:10px">Giao hàng nhanh</label>
+                </td>
+            </tr>
+        </table>
+
+        <br />
+
+        <div>
+            <h5>Phương thức thanh toán</h5>
+        </div>
+        <br />
+        <table style="border:solid 1px ; border-color:lightgrey" ; width="500px">
+            <tr>
+                <td>
+                    <input id="CbMomo" type="checkbox" style="margin-left:10px" />
+                    <label style="margin-top:10px">Ví MoMo</label>
+                    <br />
+                    <br />
+                    <input id="CbVNPay" type="checkbox" style="margin-left:10px" title="chon tick vao o" required />
+                    <label>Thanh toán online qua cổng VNPay (ATM/Visa/MasterCard/JCB)</label>
+                    <br />
+                    <br />
+                    <input id="CbMoca" type="checkbox" style="margin-left:10px" title="chon tick vao o" required />
+                    <label>Thanh toán online qua ví GrabMoca</label>
+                    <br />
+                    <br />
+                    <input id="CbShopeePay" type="checkbox" style="margin-left:10px" title="chon tick vao o" required />
+                    <label> Thanh toán online qua ShopeePay</label>
+                    <br />
+                    <br />
+                    <input id="CbCOD" type="checkbox" style="margin-left:10px" title="chon tick vao o" required />
+                    <label>Thanh toán tiền mặt khi nhận hàng (COD)</label>
+                    <br />
+                    <br />
+                    <input id="CbZaloPay" type="checkbox" style="margin-left:10px" title="chon tick vao o" required />
+                    <label style="margin-bottom:10px">Thanh toán online qua ví ZaloPay</label>
+                </td>
+            </tr>
+        </table>
+        <br />
+        <div>
+            <input id="Button1" type="button" value="Hoàn tất đơn hàng" style="background-color:cornflowerblue; color:white" />
+        </div>
+    </div>
+
+    <div class="item item2" style="background-color:aliceblue;height:825px;margin-left:20px"> </div>
+
+</div>
+
+
