@@ -27,7 +27,6 @@ D:\github\webBanMyPham\WebBanMyPham\WebBanMyPham\bin\PagedList.dll
 D:\github\webBanMyPham\WebBanMyPham\WebBanMyPham\bin\PagedList.Mvc.dll
 D:\github\webBanMyPham\WebBanMyPham\WebBanMyPham\bin\PagedList.xml
 D:\github\webBanMyPham\WebBanMyPham\WebBanMyPham\bin\PagedList.Mvc.xml
-D:\github\webBanMyPham\WebBanMyPham\WebBanMyPham\obj\Debug\WebBanMyPham.csprojResolveAssemblyReference.cache
 D:\Đồ án CN WEB\WebBanMyPham\WebBanMyPham\bin\WebBanMyPham.dll
 D:\Đồ án CN WEB\WebBanMyPham\WebBanMyPham\bin\WebBanMyPham.pdb
 D:\Đồ án CN WEB\WebBanMyPham\WebBanMyPham\bin\Microsoft.Web.Infrastructure.dll
@@ -121,3 +120,4 @@ C:\Users\Dell\OneDrive\Desktop\webBanMyPham\WebBanMyPham\WebBanMyPham\obj\Debug\
 C:\Users\Dell\OneDrive\Desktop\webBanMyPham\WebBanMyPham\WebBanMyPham\obj\Debug\WebBanMyPham.csproj.CopyComplete
 C:\Users\Dell\OneDrive\Desktop\webBanMyPham\WebBanMyPham\WebBanMyPham\obj\Debug\WebBanMyPham.dll
 C:\Users\Dell\OneDrive\Desktop\webBanMyPham\WebBanMyPham\WebBanMyPham\obj\Debug\WebBanMyPham.pdb
+D:\github\webBanMyPham\WebBanMyPham\WebBanMyPham\obj\Debug\WebBanMyPham.csprojResolveAssemblyReference.cache

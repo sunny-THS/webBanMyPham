@@ -19,6 +19,7 @@
       <Column Name="SDT" Type="System.String" DbType="VarChar(11)" CanBeNull="true" />
       <Column Name="DCHI" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="ID_TAIKHOAN" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Association Name="THONGTINTAIKHOAN_DIACHIGH" Member="DIACHIGHs" ThisKey="ID" OtherKey="ID_TTTK" Type="DIACHIGH" />
       <Association Name="TAIKHOAN_THONGTINTAIKHOAN" Member="TAIKHOAN" ThisKey="ID_TAIKHOAN" OtherKey="ID" Type="TAIKHOAN" IsForeignKey="true" />
     </Type>
   </Table>
@@ -146,6 +147,47 @@
       <Column Name="ID_KH" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
       <Association Name="HOADON_CHITIETHD" Member="CHITIETHDs" ThisKey="ID" OtherKey="ID_HD" Type="CHITIETHD" />
       <Association Name="KHACHHANG_HOADON" Member="KHACHHANG" ThisKey="ID_KH" OtherKey="ID" Type="KHACHHANG" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.QUANHUYEN" Member="QUANHUYENs">
+    <Type Name="QUANHUYEN">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TEN" Type="System.String" DbType="NVarChar(90)" CanBeNull="true" />
+      <Column Name="ID_TINHTHANH" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="QUANHUYEN_DIACHIGH" Member="DIACHIGHs" ThisKey="ID" OtherKey="IDHUYEN" Type="DIACHIGH" />
+      <Association Name="QUANHUYEN_XAPHUONG" Member="XAPHUONGs" ThisKey="ID" OtherKey="ID_QH" Type="XAPHUONG" />
+      <Association Name="TINHTHANH_QUANHUYEN" Member="TINHTHANH" ThisKey="ID_TINHTHANH" OtherKey="ID" Type="TINHTHANH" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DIACHIGH" Member="DIACHIGHs">
+    <Type Name="DIACHIGH">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SONHA" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="IDTINH" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IDHUYEN" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IDXA" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ID_TTTK" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="THONGTINTAIKHOAN_DIACHIGH" Member="THONGTINTAIKHOAN" ThisKey="ID_TTTK" OtherKey="ID" Type="THONGTINTAIKHOAN" IsForeignKey="true" />
+      <Association Name="QUANHUYEN_DIACHIGH" Member="QUANHUYEN" ThisKey="IDHUYEN" OtherKey="ID" Type="QUANHUYEN" IsForeignKey="true" />
+      <Association Name="TINHTHANH_DIACHIGH" Member="TINHTHANH" ThisKey="IDTINH" OtherKey="ID" Type="TINHTHANH" IsForeignKey="true" />
+      <Association Name="XAPHUONG_DIACHIGH" Member="XAPHUONG" ThisKey="IDXA" OtherKey="ID" Type="XAPHUONG" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TINHTHANH" Member="TINHTHANHs">
+    <Type Name="TINHTHANH">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TEN" Type="System.String" DbType="NVarChar(90)" CanBeNull="true" />
+      <Association Name="TINHTHANH_QUANHUYEN" Member="QUANHUYENs" ThisKey="ID" OtherKey="ID_TINHTHANH" Type="QUANHUYEN" />
+      <Association Name="TINHTHANH_DIACHIGH" Member="DIACHIGHs" ThisKey="ID" OtherKey="IDTINH" Type="DIACHIGH" />
+    </Type>
+  </Table>
+  <Table Name="dbo.XAPHUONG" Member="XAPHUONGs">
+    <Type Name="XAPHUONG">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TEN" Type="System.String" DbType="NVarChar(90)" CanBeNull="true" />
+      <Column Name="ID_QH" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="XAPHUONG_DIACHIGH" Member="DIACHIGHs" ThisKey="ID" OtherKey="IDXA" Type="DIACHIGH" />
+      <Association Name="QUANHUYEN_XAPHUONG" Member="QUANHUYEN" ThisKey="ID_QH" OtherKey="ID" Type="QUANHUYEN" IsForeignKey="true" />
     </Type>
   </Table>
   <Function Name="dbo.sp_UpTTTK" Method="sp_UpTTTK">
