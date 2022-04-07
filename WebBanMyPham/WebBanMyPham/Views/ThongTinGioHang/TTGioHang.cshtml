@@ -191,25 +191,12 @@
         <table>
             <tr>
                 <td>
-                    <div class="dropdown">
-                        <button onclick="hamDropdown3()" class="nut_dropdown3">Tỉnh/Thành phố</button>
-                        <div class="noidung_dropdown3">
-                            <a href="#"></a>
-                            <a href="#"></a>
-                            <a href="#"></a>
-                        </div>
-                    </div>
+                    @Html.DropDownList("TinhThanh", (IEnumerable<SelectListItem>) ViewBag.LstTinhThanh, "Tỉnh/Thành", new { @class = "form-control", @onchange="QuanHuyen(this.value)"})
                 </td>
 
                 <td>
-                    <div class="dropdown">
-                        <button onclick="hamDropdown1()" class="nut_dropdown1">Quận/huyện</button>
-                        <div class="noidung_dropdown1">
-                            <a href="#"></a>
-                            <a href="#"></a>
-                            <a href="#"></a>
-                        </div>
-                    </div>
+                    @*xét theo tỉnh thành dùng ajax để load data*@
+                    @Html.DropDownList("QuanHuyen", (IEnumerable<SelectListItem>) ViewBag.QuanHuyen, "Quận/Huyện", new { @class = "form-control", @onchange="XaPhuong(this.value)"})
                 </td>
 
                 <td>
@@ -225,6 +212,13 @@
             </tr>
 
         </table>
+        <script>
+            function QuanHuyen(val) {
+               @* @{
+                    getQuanHuyen(val);
+                }*@
+            }
+        </script>
 
         <br />
         <div>
