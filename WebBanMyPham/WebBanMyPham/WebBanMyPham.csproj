@@ -2166,6 +2166,7 @@
     <Content Include="Views\QuanLy\HoaDon.cshtml" />
     <Content Include="Views\QuanLy\QLTaiKhoan.cshtml" />
     <Content Include="Views\ThongTinGioHang\TTGioHang.cshtml" />
+    <Content Include="Views\Shared\_LayoutPageDonHang.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />

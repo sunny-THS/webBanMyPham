@@ -151,6 +151,7 @@ namespace WebBanMyPham.Controllers
 
         public ActionResult DatHang()
         {
+            // xử lí theo quy trình
             return RedirectToAction("TTGioHang", "ThongTinGioHang");
             /*
             // check người dùng 

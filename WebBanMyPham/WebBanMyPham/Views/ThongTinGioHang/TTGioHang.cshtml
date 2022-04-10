@@ -2,186 +2,34 @@
 
 @{
     ViewBag.Title = "TTGioHang";
-    Layout = "~/Views/Shared/_LayoutPageCommonClient.cshtml";
+    Layout = "~/Views/Shared/_LayoutPageDonHang.cshtml";
 }
 
-<script>
-    function hamDropdown1() {
-        document.querySelector(".noidung_dropdown1").classList.toggle("hienThi");
-    }
+<div id="container-fluid mt-2">
+    <h2 class="mb-3 text-center">Thông Tin Giỏ Hàng</h2>
+    <div style="margin:0 5% 0 5%;">
+        <span>Bạn đã có tài khoản ? <a href="/Auth/DangNhap">Đăng nhập</a></span>
 
-    window.onclick = function (e) {
-        if (!e.target.matches('.nut_dropdown1')) {
-            var noiDungDropdown = document.querySelector(".noidung_dropdown1");
-            if (noiDungDropdown.classList.contains('hienThi')) {
-                noiDungDropdown.classList.remove('hienThi');
-            }
-        }
-    }
-</script>
-
-<script>
-    function hamDropdown2() {
-        document.querySelector(".noidung_dropdown2").classList.toggle("hienThi");
-    }
-
-    window.onclick = function (e) {
-        if (!e.target.matches('.nut_dropdown2')) {
-            var noiDungDropdown = document.querySelector(".noidung_dropdown2");
-            if (noiDungDropdown.classList.contains('hienThi')) {
-                noiDungDropdown.classList.remove('hienThi');
-            }
-        }
-    }
-</script>
-
-<script>
-    function hamDropdown3() {
-        document.querySelector(".noidung_dropdown3").classList.toggle("hienThi");
-    }
-
-    window.onclick = function (e) {
-        if (!e.target.matches('.nut_dropdown3')) {
-            var noiDungDropdown = document.querySelector(".noidung_dropdown3");
-            if (noiDungDropdown.classList.contains('hienThi')) {
-                noiDungDropdown.classList.remove('hienThi');
-            }
-        }
-    }
-</script>
-
-<style>
-    #container {
-        display: grid;
-        grid-template-columns: 500px 500px;
-        grid-template-rows: 500px 400px;
-    }
-    /* Nút Dropdown*/
-    .nut_dropdown1 {
-        background-color: white;
-        color: black;
-        padding: 16px;
-        font-size: 16px;
-        border: none;
-    }
-    /* Nút Dropdown*/
-    .nut_dropdown2 {
-        background-color: white;
-        color: black;
-        padding: 16px;
-        font-size: 16px;
-        border: none;
-    }
-
-    /* Nút Dropdown*/
-    .nut_dropdown3 {
-        background-color: white;
-        color: black;
-        padding: 16px;
-        font-size: 16px;
-        border: none;
-    }
-
-    /* Thiết lập vị trí cho thẻ div với class dropdown*/
-    .dropdown {
-        position: relative;
-        display: inline-block;
-    }
-
-    /* Nội dung Dropdown */
-    .noidung_dropdown1 {
-        /*Ẩn nội dụng các đường dẫn*/
-        display: none;
-        position: absolute;
-        background-color: #f1f1f1;
-        min-width: 160px;
-        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-        z-index: 1;
-    }
-    /* Nội dung Dropdown */
-    .noidung_dropdown2 {
-        /*Ẩn nội dụng các đường dẫn*/
-        display: none;
-        position: absolute;
-        background-color: #f1f1f1;
-        min-width: 160px;
-        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-        z-index: 1;
-    }
-
-    /* Nội dung Dropdown */
-    .noidung_dropdown3 {
-        /*Ẩn nội dụng các đường dẫn*/
-        display: none;
-        position: absolute;
-        background-color: #f1f1f1;
-        min-width: 160px;
-        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-        z-index: 1;
-    }
-
-      /* Thiết kế style cho các đường dẫn tronng Dropdown */
-        .noidung_dropdown1 a {
-            color: black;
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-        }
-    /* Thiết kế style cho các đường dẫn tronng Dropdown */
-    .noidung_dropdown2 a {
-        color: black;
-        padding: 12px 16px;
-        text-decoration: none;
-        display: block;
-    }
-
-    /* Thiết kế style cho các đường dẫn tronng Dropdown */
-    .noidung_dropdown3 a {
-        color: black;
-        padding: 12px 16px;
-        text-decoration: none;
-        display: block;
-    }
-
-    .hienThi {
-        display: block;
-    }
-</style>
-
-
-
-<div id="container">
-    <div class="item item1">
-        <br />
-        <h3>Thông Tin Giỏ Hàng</h3>
-        <br />
-        <label>Bạn đã có tài khoản ? <a href="#">Đăng nhập</a></label>
-        <br />
-
-        <table>
+        <table style="width: 100%" class="mt-2">
             <tr>
-                <td colspan="2" style="width: 500px">
-                    <input id="floatingInputSignin" class="form-control mb-2" type="text" placeholder="Họ và Tên" title="nhap ho va ten" required />
+                <td colspan="2">
+                    <input id="txtHoTen" class="form-control mb-2" type="text" placeholder="Họ và Tên" title="nhap ho va ten" required />
                 </td>
             </tr>
 
             <tr>
-                <td style="width: 200px">
-                    <input id="floatingInputSignin" class="form-control mb-2" type="email" placeholder="Email" title="nhap email " />
-
+                <td style="width: 40%">
+                    <input id="txtEmail" class="form-control mb-2" placeholder="Email" title="nhap sdt" required />
 
                 </td>
                 <td>
-                    <input id="floatingInputSignin" class="form-control mb-2" placeholder="Số điện thoại" type="number" title="nhap sdt" required />
-
+                    <input id="txtSDT" class="form-control mb-2" placeholder="Số điện thoại" type="tel" title="nhap sdt" required />
 
                 </td>
             </tr>
             <tr>
                 <td colspan="2">
-                    <input id="floatingInputSignin" class="form-control mb-2" name="#" placeholder="Địa chỉ" title="nhap sdt" required />
-
-
+                    <input id="txtDiaChi" class="form-control mb-2" name="#" placeholder="Địa chỉ" title="nhap sdt" required />
                 </td>
             </tr>
 
@@ -191,40 +39,71 @@
         <table>
             <tr>
                 <td>
-                    @Html.DropDownList("TinhThanh", (IEnumerable<SelectListItem>) ViewBag.LstTinhThanh, "Tỉnh/Thành", new { @class = "form-control", @onchange="QuanHuyen(this.value)"})
+                    @Html.DropDownList("TinhThanh", (IEnumerable<SelectListItem>) ViewBag.LstTinhThanh, "Tỉnh/Thành", new { @class = "form-control" })
                 </td>
 
                 <td>
                     @*xét theo tỉnh thành dùng ajax để load data*@
-                    @Html.DropDownList("QuanHuyen", (IEnumerable<SelectListItem>) ViewBag.QuanHuyen, "Quận/Huyện", new { @class = "form-control", @onchange="XaPhuong(this.value)"})
+                    @Html.DropDownList("QuanHuyen", (IEnumerable<SelectListItem>) ViewBag.LstQH, "Quận/Huyện", new { @class = "form-control" })
                 </td>
 
                 <td>
-                    <div class="dropdown" style="margin-left:30px">
-                        <button onclick="hamDropdown2()" class="nut_dropdown2">Phường/xã</button>
-                        <div class="noidung_dropdown2">
-                            <a href="#"></a>
-                            <a href="#"></a>
-                            <a href="#"></a>
-                        </div>
-                    </div>
+                    @Html.DropDownList("XaPhuong", (IEnumerable<SelectListItem>) ViewBag.LstQH, "Xã/Phường", new { @class = "form-control" })
                 </td>
             </tr>
 
         </table>
         <script>
-            function QuanHuyen(val) {
-               @* @{
-                    getQuanHuyen(val);
-                }*@
-            }
+            $(document).ready(function () {
+                $("#TinhThanh").change(() => {
+                    $.ajax({
+                        type: 'GET',
+                        url: '@Url.Action("GetQH")',
+                        dataType: 'json',
+                        data: { thID: $("#TinhThanh").val() },
+                        success: function (th) {
+                            const data = JSON.parse(th);
+                            $("#QuanHuyen").empty();
+                            $("#QuanHuyen").append('<option value>Quận/Huyện</option>')
+                            for(let qh of data) {
+                                $("#QuanHuyen").append(`<option value="${qh.ID}">${qh.TEN}</option>`);
+                            };
+                        },
+                        error: function (ex) {
+                            console.log(ex);
+                            alert('Failed to retrieve states.' + ex);
+                        }
+                    });
+                })
+
+                $("#QuanHuyen").change(() => {
+                    $.ajax({
+                        type: 'GET',
+                        url: '@Url.Action("GetXP")',
+                        dataType: 'json',
+                        data: { qhID: $("#QuanHuyen").val() },
+                        success: function (th) {
+                            const data = JSON.parse(th);
+                            $("#XaPhuong").empty();
+                            $("#XaPhuong").append('<option value>Xã/Phường</option>')
+                            for(let xp of data) {
+                                $("#XaPhuong").append(`<option value="${xp.ID}">${xp.TEN}</option>`);
+                            };
+                        },
+                        error: function (ex) {
+                            console.log(ex);
+                            alert('Failed to retrieve states.' + ex);
+                        }
+                    });
+                })
+            });
         </script>
 
         <br />
         <div>
             <h5>Phương thức vận chuyển</h5>
         </div>
-        <table style="border: solid 1px;  border-color:lightgrey" ; width="500px">
+        <table style="border: solid 1px;  border-color:lightgrey" ; width="100%">
             <br />
             <tr>
                 <td>
@@ -245,7 +124,7 @@
             <h5>Phương thức thanh toán</h5>
         </div>
         <br />
-        <table style="border:solid 1px ; border-color:lightgrey" ; width="500px">
+        <table style="border:solid 1px ; border-color:lightgrey" ; width="100%">
             <tr>
                 <td>
                     <input id="CbMomo" type="checkbox" style="margin-left:10px" />
@@ -274,12 +153,11 @@
             </tr>
         </table>
         <br />
-        <div>
-            <input id="Button1" type="button" value="Hoàn tất đơn hàng" style="background-color:cornflowerblue; color:white" />
-        </div>
+        
     </div>
-
-    <div class="item item2" style="background-color:aliceblue;height:825px;margin-left:20px"> </div>
+    <div class="text-center">
+            <a href="#" class="btn" style="font-size: 24px;background-color:cornflowerblue;color:white" title="Xác nhận">Xác nhận</a>
+    </div>
 
 </div>
 
