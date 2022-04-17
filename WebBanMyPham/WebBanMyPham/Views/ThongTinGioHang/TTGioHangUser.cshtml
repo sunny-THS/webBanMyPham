@@ -1,32 +1,13 @@
 ﻿@model SelectListItem
-
 @{
-    ViewBag.Title = "TTGioHang";
+    ViewBag.Title = "TTGioHangUser";
     Layout = "~/Views/Shared/_LayoutPageDonHang.cshtml";
 }
 
 <div id="container-fluid mt-2">
     <h2 class="mb-3 text-center">Thông Tin Giỏ Hàng</h2>
     <div style="margin:0 5% 0 5%;">
-        <span>Bạn đã có tài khoản ? <a href="/Auth/DangNhap">Đăng nhập</a></span>
-
-        <table style="width: 100%" class="mt-2">
-            <tr>
-                <td colspan="2">
-                    <input id="txtHoTen" class="form-control mb-2" type="text" placeholder="Họ và Tên" title="nhap ho va ten" required />
-                </td>
-            </tr>
-            
-            <tr>
-                <td style="width: 40%">
-                    <input id="txtEmail" class="form-control mb-2" placeholder="Email" title="nhap sdt" required />
-
-                </td>
-                <td>
-                    <input id="txtSDT" class="form-control mb-2" placeholder="Số điện thoại" type="tel" title="nhap sdt" required />
-
-                </td>
-            </tr>
+        <table style="width: 100%" class="mt-2">    
             <tr>
                 <td colspan="2">
                     <input id="txtDiaChi" class="form-control mb-2" name="#" placeholder="Địa chỉ" title="nhap sdt" required />
@@ -119,6 +100,7 @@
                             @Html.Label(ppvc.Text, new { @for = "Radio"+ppvc.Value, @class = "form-check-label"}) 
                         </div>
                     }
+                    
                 </td>
             </tr>
         </table>
@@ -135,68 +117,23 @@
 <script>
     $("#Radio1").attr('checked', 'checked');
     $('#btnXacNhan').click((e) => {
-
-        const name_ = $('#txtHoTen').val();
-        const email_ = $('#txtEmail').val();
-        const tel_ = $('#txtSDT').val();
         const diaChi_ = $('#txtDiaChi').val();
 
-        $('#txtHoTen, #txtEmail, #txtSDT, #txtDiaChi').css({
+        $('#txtDiaChi').css({
             'border': ''
         })
 
-        if (name_.trim().length==0 || email_.trim().length==0 || tel_.trim().length==0 || diaChi_.trim().length==0)
+        if (diaChi_.trim().length==0)
         {
             Toast.fire({
                 icon: 'warning', 
                 title: 'Vui lòng nhập đầy đủ thông tin!' 
             });
-            if (name_.trim().length==0)
-                $('#txtHoTen').css({
-                    'border': '1px solid red'
-                })
-            if (email_.trim().length==0)
-                $('#txtEmail').css({
-                    'border': '1px solid red'
-                })
-            if (tel_.trim().length==0)
-                $('#txtSDT').css({
-                    'border': '1px solid red'
-                })
+            
             if (diaChi_.trim().length==0)
                 $('#txtDiaChi').css({
                     'border': '1px solid red'
                 })
-            return;
-        }
-    // kiểm email
-        if (!validateEmail(email_))
-        {
-            Toast.fire({
-                icon: 'warning', 
-                title: 'Email không hợp lợi.Vui lòng nhập lại.' 
-            });
-            $('#txtHoTen, #txtEmail, #txtSDT, #txtDiaChi').css({
-                'border': ''
-            });
-            $('#txtEmail').css({
-                'border': '1px solid red'
-            })
-            return;
-        }
-    // kiểm số điện thoại
-        if (!validateTel(tel_))
-        {
-            Toast.fire({
-                icon: 'warning', 
-                title: 'Số điện thoại không hợp lợi.Vui lòng nhập lại.' 
-            });
-            $('#txtHoTen, #txtEmail, #txtSDT, #txtDiaChi').css({
-                'border': ''
-            });
-            $('#txtSDT').css({
-                'border': '1px solid red'
-            })
             return;
         }
         
@@ -235,13 +172,13 @@
             return;
         }
 
-        // thỏa all điểu kiện
+    // thỏa all điểu kiện
 
         $.ajax({
             type: 'GET',
             url: '@Url.Action("XacNhanHD")',
             dataType: 'json',
-            data: { pHoTen: name_, pEmail: email_, pSDT: tel_, pDC: diaChi_, pTP: $('#TinhThanh').val(), pQH: $('#QuanHuyen').val(), pXP: $('#XaPhuong').val(), pPPVC: $("input:checked").val() },
+            data: { pHoTen: '', pEmail: '', pSDT: '', pDC: diaChi_, pTP: $('#TinhThanh').val(), pQH: $('#QuanHuyen').val(), pXP: $('#XaPhuong').val(), pPPVC: $("input:checked").val() },
             success: function (th) {
                 location.href='/GioHang/HoaDon';
                 
@@ -253,3 +190,4 @@
         });
     });
 </script>
+

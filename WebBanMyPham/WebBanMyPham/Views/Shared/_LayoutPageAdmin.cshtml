@@ -55,10 +55,10 @@
                     <div class="collapse navbar-collapse" id="navbarScroll">
                         <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
                             <li class="nav-item">
-                                <a href="~/Admin/QuanLy" class="nav-link text-white txtMenuHeader me-2" style="font-size: 1.5rem">TRANG CHỦ</a>
+                                <a href="~/Admin/QuanLy" class="nav-link text-white txtMenuHeader me-2" style="font-size: 18px">TRANG CHỦ</a>
                             </li>
                             <li class="nav-item">
-                                <a href="/Admin/Index" class="nav-link text-white txtMenuHeader me-2" style="font-size: 1.5rem">ĐĂNG XUẤT</a>
+                                <a href="/Admin/Index" class="nav-link text-white txtMenuHeader me-2" style="font-size: 18px">ĐĂNG XUẤT</a>
                             </li>
                         </ul>
                     </div>
@@ -70,7 +70,7 @@
     @*nội dung*@
     <div class="container mt-2 mb-3">
         <div class="row">
-            <div class="col col-lg-4 col-md-3 h-100 sticky">
+            <div class="col col-lg-3 h-100 sticky">
                 <div class="card px-3 w-100" style="width: 18rem;">
                     <div class="card-header text-white fw-bold mauChuDao">
                         Chức năng
@@ -82,17 +82,10 @@
                                 <span class="col ms-1" style="align-items: center; display: flex">Quản lý hóa đơn</span>
                             </a></li>
                     </ul>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item list-group-item-action text-info">
-                            <a href="~/QuanLy/QLTaiKhoan" class="w-100 row" style="text-decoration: none">
-                                <span class="col-2" style="font-size:1.8rem"><i class="fas fa-users"></i></span>
-                                <span class="col ms-1" style="align-items: center; display: flex">Quản lý tài khoản người dùng</span>
-                            </a></li>
-                    </ul>
                 </div>
             </div>
 
-            <div class="col col-lg-8 col-md-9">
+            <div class="col col-lg-9">
                 @*nội dung chính*@
                 <div>
                     @RenderBody()

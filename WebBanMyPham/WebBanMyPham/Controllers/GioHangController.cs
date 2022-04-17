@@ -153,36 +153,6 @@ namespace WebBanMyPham.Controllers
         {
             // xử lí theo quy trình
             return RedirectToAction("TTGioHang", "ThongTinGioHang");
-            /*
-            // check người dùng 
-            if (Session["ThongTinNguoiDung"] == null)
-                return RedirectToAction("DangNhap", "Auth");
-
-            List<HoaDon> lstGioHang = LayHoaDon(); // lấy lst hóa đơn 
-
-            // get mã hóa đơn
-            string maHD = db.fn_autoIDHD();
-
-            var ttND = Session["ThongTinNguoiDung"] as ThongTinNguoiDung;
-
-            lstGioHang.ForEach(gh =>
-            {
-                List<sp_AddHDResult> rs = db.sp_AddHD(maHD, ttND.HoTen, ttND.Tk.Username, gh.Sp.TenSP, gh.Sp.SoLuong).ToList();
-
-                if (rs[0].Message != "SUCCESS")
-                {
-                    ViewBag.Info = "ERR";
-                    ViewBag.Message = "Đã xảy ra lỗi vui lòng thử lại";
-                    RedirectToAction("GioHang");
-                }
-            });
-            Session["IDHD"] = maHD;
-
-            // xuất hóa đơn
-            return RedirectToAction("HoaDon");
-            */
-
-
         }
 
         public ActionResult HoaDon()

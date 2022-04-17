@@ -9,6 +9,20 @@ namespace WebBanMyPham.Models
     {
         string maHD, tenKH;// nhập khi thanh toán
         DateTime ngayCapNhat;
+        string ppvc;
+        string diaChi;
+
+        public string DiaChi
+        {
+            get { return diaChi; }
+            set { diaChi = value; }
+        }
+
+        public string Ppvc
+        {
+            get { return ppvc; }
+            set { ppvc = value; }
+        }
 
         public DateTime NgayCapNhat
         {

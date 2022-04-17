@@ -1,6 +1,6 @@
 ﻿<!DOCTYPE html>
 
-<html>
+<html class="h-100">
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
@@ -12,6 +12,9 @@
 
     <script src="~/lib/jquery/jquery.min.js"></script>
     <script src="~/lib/bootstrap/js/bootstrap.min.js"></script>
+
+    
+    <script src="~/lib/asset/script/validate.js"></script>
 
     <script type="text/javascript" src="~/lib/sweetalert/sweetalert2@11.js"></script>
 
@@ -29,7 +32,7 @@
         });
     </script>
 </head>
-<body>
+<body class="d-flex flex-column h-100">
     @*menu*@
     <div class="container-fluid mauChuDao">
         <header class="container">
@@ -46,16 +49,16 @@
                     <div class="collapse navbar-collapse" id="navbarScroll">
                         <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
                             <li class="nav-item">
-                                <a href="~/Home/Index" class="nav-link text-white txtMenuHeader me-2" style="font-size: 24px">TRANG CHỦ</a>
+                                <a href="~/Home/Index" class="nav-link text-white txtMenuHeader me-2" style="font-size: 18px">TRANG CHỦ</a>
                             </li>
                             <li class="nav-item">
-                                <a href="~/Home/LienHe" class="nav-link text-white txtMenuHeader me-2" style="font-size: 24px">LIÊN HỆ</a>
+                                <a href="~/Home/LienHe" class="nav-link text-white txtMenuHeader me-2" style="font-size: 18px">LIÊN HỆ</a>
                             </li>
                             <li class="nav-item">
-                                <a href="/Auth/DangNhap" class="nav-link text-white txtMenuHeader me-2" style="font-size: 24px">ĐĂNG NHẬP</a>
+                                <a href="/Auth/DangNhap" class="nav-link text-white txtMenuHeader me-2" style="font-size: 18px">ĐĂNG NHẬP</a>
                             </li>
                             <li class="nav-item">
-                                <a href="#DangKy" data-bs-toggle="modal" data-bs-target="#modalSignup" class="nav-link text-white txtMenuHeader me-2" style="font-size: 24px">ĐĂNG KÝ</a>
+                                <a href="#DangKy" data-bs-toggle="modal" data-bs-target="#modalSignup" class="nav-link text-white txtMenuHeader me-2" style="font-size: 18px">ĐĂNG KÝ</a>
                             </li>
 
                             <li class="nav-item">
@@ -69,6 +72,9 @@
                                 <i class="fas fa-search"></i>
                             </button>
                         </form>
+                        <div>
+                            @Html.Action("UserPartial", "Auth")
+                        </div>
                     </div>
                 </div>
             </nav>

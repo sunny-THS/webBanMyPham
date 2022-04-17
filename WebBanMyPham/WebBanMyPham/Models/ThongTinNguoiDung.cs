@@ -10,6 +10,13 @@ namespace WebBanMyPham.Models
         string hoTen, email, sdt, gioiTinh;
         TaiKhoan tk;
         DateTime ngaySinh;
+        bool coTK;
+
+        public bool CoTK
+        {
+            get { return coTK; }
+            set { coTK = value; }
+        }
 
         public TaiKhoan Tk
         {

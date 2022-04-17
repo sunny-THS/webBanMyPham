@@ -2164,9 +2164,10 @@
     <Content Include="Views\Shared\_LayoutPageAdmin.cshtml" />
     <Content Include="Views\Admin\QuanLy.cshtml" />
     <Content Include="Views\QuanLy\HoaDon.cshtml" />
-    <Content Include="Views\QuanLy\QLTaiKhoan.cshtml" />
     <Content Include="Views\ThongTinGioHang\TTGioHang.cshtml" />
     <Content Include="Views\Shared\_LayoutPageDonHang.cshtml" />
+    <Content Include="Views\Auth\UserPartial.cshtml" />
+    <Content Include="Views\ThongTinGioHang\TTGioHangUser.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />

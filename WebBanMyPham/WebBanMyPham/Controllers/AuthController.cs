@@ -54,7 +54,7 @@ namespace WebBanMyPham.Controllers
         [HttpPost]
         public JsonResult DangKy(ThongTinNguoiDung signup)
         {
-            string res = db.sp_AddAcc(signup.Tk.Username, signup.Tk.Pw, "Khách Hàng", signup.HoTen, signup.NgaySinh, signup.GioiTinh, signup.Email, signup.Sdt, string.Empty).ToList<sp_AddAccResult>()[0].Message;
+            string res = db.sp_AddAcc(signup.Tk.Username, signup.Tk.Pw, "Khách Hàng", signup.HoTen, signup.NgaySinh, signup.GioiTinh, signup.Email, signup.Sdt, string.Empty, true).ToList<sp_AddAccResult>()[0].Message;
 
             JsonResult a = new JsonResult();
 
@@ -65,6 +65,20 @@ namespace WebBanMyPham.Controllers
             else a.Data = "fail";
 
             return a;
+        }
+
+        public ActionResult DangXuat()
+        {
+            Session["ThongTinNguoiDung"] = null;
+            return RedirectToAction("Index", "Home");
+        }
+
+        public ActionResult UserPartial()
+        {
+            if (Session["ThongTinNguoiDung"] != null)
+                ViewBag.UserName = (Session["ThongTinNguoiDung"] as ThongTinNguoiDung).HoTen;
+            
+            return PartialView();
         }
     }
 }
