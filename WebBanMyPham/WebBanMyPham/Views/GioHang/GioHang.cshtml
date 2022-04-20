@@ -47,7 +47,7 @@
                     @using (Html.BeginForm("CapNhatGioHang", "GioHang", new { @MaSP = item.data.Sp.Id }))
                     {
                         <td>
-                            <input type="number" min="1" name="txtSoLuong" value="@item.data.Sp.SoLuong" max="99" /></td>
+                            <input type="number" min="1" name="txtSoLuong" value="@item.data.Sp.SoLuong" max="99" required/></td>
                         <td>
                             <pre>@String.Format("{0:0,0} VND", item.data.Sp.Gia)</pre>
                         </td>
