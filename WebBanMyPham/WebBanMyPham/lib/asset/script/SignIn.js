@@ -26,7 +26,7 @@
     {
         Toast.fire({
             icon: 'error', 
-            title: 'Email không hợp lợi.Vui lòng nhập lại.' 
+            title: 'Email không hợp lệ.Vui lòng nhập lại.' 
         });
         $('#floatingNameSignup, #floatingUsernameSignup, #floatingPasswordSignup, #floatingPhoneSignup').css({
             'border': ''
@@ -40,7 +40,7 @@
     {
         Toast.fire({
             icon: 'error', 
-            title: 'Số điện thoại không hợp lợi.Vui lòng nhập lại.' 
+            title: 'Số điện thoại không hợp lệ.Vui lòng nhập lại.' 
         });
         $('#floatingNameSignup, #floatingUsernameSignup, #floatingPasswordSignup, #floatingEmailSignup').css({
             'border': ''

@@ -79,6 +79,9 @@
         </tfoot>
     </table>
 </div>
+<script>
+    console.log("@ViewBag.Info");
+</script>
 @if (@ViewBag.Info == "ERR")
 {
     <script>
@@ -87,5 +90,4 @@
             title: '@ViewBag.Message'
         });
     </script>
-    @ViewBag.Clear()
 }

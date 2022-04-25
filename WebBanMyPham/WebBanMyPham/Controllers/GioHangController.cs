@@ -14,9 +14,19 @@ namespace WebBanMyPham.Controllers
 
         public ActionResult GioHang()
         {
+            ViewBag.Message = ViewBag.Info = string.Empty;
+
             if (Session["HoaDon"] == null)
                 return RedirectToAction("MessageEmpty");
             List<HoaDon> lstHD = LayHoaDon();
+
+            if (ckSL)
+            {
+                ViewBag.Message = string.Format("Sản phẩm {0}... không đủ số lượng", tenSP.Substring(0, 30));
+                ViewBag.Info = "ERR";
+
+                ckSL = false;
+            }
 
             ViewBag.TongSoLuong = TongSoLuong();
             ViewBag.TongThanhTien = TongThanhTien();
@@ -109,6 +119,7 @@ namespace WebBanMyPham.Controllers
             //lấy giỏ hàng
             List<HoaDon> lstGioHang = LayHoaDon();
             lstGioHang.Clear();
+            Session["HoaDon"] = null;
             return RedirectToAction("Index", "Home");
         }
 
@@ -127,24 +138,39 @@ namespace WebBanMyPham.Controllers
             if (hd != null)
             {
                 lstGioHang.RemoveAll(sp => sp.Sp.Id == MaSP);
-                return RedirectToAction("GioHang");
             }
             //nếu giỏ hàng rỗng
             if (lstGioHang.Count == 0)
             {
+                Session["HoaDon"] = null;
+
                 return RedirectToAction("Index", "Home");
             }
             return RedirectToAction("GioHang");
         }
 
+        static bool ckSL = false;
+        static string tenSP = string.Empty;
+
         public ActionResult CapNhatGioHang(string MaSP, FormCollection f)
         {
+            ckSL = false;
             List<HoaDon> lstGioHang = LayHoaDon();
             HoaDon sp = lstGioHang.Single(s => s.Sp.Id == MaSP);
+
+            // kiểm tra số lượng sản phẩm
+            int? slSP = db.SANPHAMs.Where(s => s.ID == MaSP).Select(s => s.SOLUONG).Single();
+
             //nếu có thì tiến hành cập nhật
             if (sp != null)
             {
-                sp.Sp.SoLuong = int.Parse(f["txtSoLuong"].ToString());
+
+                if (slSP < int.Parse(f["txtSoLuong"].ToString()))
+                {
+                    ckSL = true;
+                    tenSP = sp.Sp.TenSP;
+                }
+                else sp.Sp.SoLuong = int.Parse(f["txtSoLuong"].ToString());
             }
             return RedirectToAction("GioHang");
         }
