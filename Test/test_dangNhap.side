@@ -1,0 +1,272 @@
+{
+  "id": "16e27880-aaa1-4b38-977f-73663f0630d8",
+  "version": "2.0",
+  "name": "test_dangNhap",
+  "url": "http://localhost:63565/Auth/DangNhap",
+  "tests": [{
+    "id": "6d5d762f-746c-425a-a470-fd95d4aef6ec",
+    "name": "DangNhapThatBai",
+    "commands": [{
+      "id": "4d7eed7b-0342-4f9e-b7d9-da451beb45e5",
+      "comment": "",
+      "command": "open",
+      "target": "/Auth/DangNhap",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "2289aea9-daa6-4d99-a310-2bbbe6185e45",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1552x840",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "b474a16e-b804-43cd-ab06-ab8c9c8fb903",
+      "comment": "",
+      "command": "click",
+      "target": "id=floatingInputSignin",
+      "targets": [
+        ["id=floatingInputSignin", "id"],
+        ["name=username", "name"],
+        ["css=#floatingInputSignin", "css:finder"],
+        ["xpath=//input[@id='floatingInputSignin']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "1282f401-bd21-4e19-8c5f-299c1997b235",
+      "comment": "",
+      "command": "type",
+      "target": "id=floatingInputSignin",
+      "targets": [
+        ["id=floatingInputSignin", "id"],
+        ["name=username", "name"],
+        ["css=#floatingInputSignin", "css:finder"],
+        ["xpath=//input[@id='floatingInputSignin']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "123"
+    }, {
+      "id": "b5f75d2c-5dbe-413e-b293-874bf53a7bb8",
+      "comment": "",
+      "command": "type",
+      "target": "id=floatingPasswordSignin",
+      "targets": [
+        ["id=floatingPasswordSignin", "id"],
+        ["name=pw", "name"],
+        ["css=#floatingPasswordSignin", "css:finder"],
+        ["xpath=//input[@id='floatingPasswordSignin']", "xpath:attributes"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "654"
+    }, {
+      "id": "5e8d22ce-9f7d-4bf4-9db6-5410d73782a5",
+      "comment": "",
+      "command": "click",
+      "target": "id=btnSignin",
+      "targets": [
+        ["id=btnSignin", "id"],
+        ["css=#btnSignin", "css:finder"],
+        ["xpath=//button[@id='btnSignin']", "xpath:attributes"],
+        ["xpath=//form/div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Đăng nhập')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "b36c3389-57b6-46e7-a5b9-d7520796cabb",
+      "comment": "",
+      "command": "click",
+      "target": "id=swal2-title",
+      "targets": [
+        ["id=swal2-title", "id"],
+        ["css=#swal2-title", "css:finder"],
+        ["xpath=//h2[@id='swal2-title']", "xpath:attributes"],
+        ["xpath=//h2", "xpath:position"],
+        ["xpath=//h2[contains(.,'Thông tin đăng nhập không chính xác.')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "61559b1b-4277-47df-9570-ae2c6256688e",
+      "comment": "đăng nhập thất bại",
+      "command": "assertText",
+      "target": "id=swal2-title",
+      "targets": [],
+      "value": "Thông tin đăng nhập không chính xác."
+    }]
+  }, {
+    "id": "a638bd30-c7b3-4a6b-a79e-bc401561fb8f",
+    "name": "NhapThieuThongTin",
+    "commands": [{
+      "id": "e3cc58d3-c7e5-440f-89e5-7c78167a5ae9",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:63565/Auth/DangNhap",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "c7f738ab-a2ff-4991-8fcb-4d1b17d49b87",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "788x824",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "818fa111-16ea-4d42-9109-a318cce95b2d",
+      "comment": "",
+      "command": "click",
+      "target": "id=floatingInputSignin",
+      "targets": [
+        ["id=floatingInputSignin", "id"],
+        ["name=username", "name"],
+        ["css=#floatingInputSignin", "css:finder"],
+        ["xpath=//input[@id='floatingInputSignin']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ea0f322b-e803-4022-b0cd-80b8fd0539ca",
+      "comment": "",
+      "command": "type",
+      "target": "id=floatingInputSignin",
+      "targets": [
+        ["id=floatingInputSignin", "id"],
+        ["name=username", "name"],
+        ["css=#floatingInputSignin", "css:finder"],
+        ["xpath=//input[@id='floatingInputSignin']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": " "
+    }, {
+      "id": "aad42ffc-019f-4dd7-887d-c8dee79dad1d",
+      "comment": "",
+      "command": "type",
+      "target": "id=floatingPasswordSignin",
+      "targets": [
+        ["id=floatingPasswordSignin", "id"],
+        ["name=pw", "name"],
+        ["css=#floatingPasswordSignin", "css:finder"],
+        ["xpath=//input[@id='floatingPasswordSignin']", "xpath:attributes"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "123"
+    }, {
+      "id": "aa2906f9-8df0-4c69-8e83-d7082502b805",
+      "comment": "",
+      "command": "click",
+      "target": "id=btnSignin",
+      "targets": [
+        ["id=btnSignin", "id"],
+        ["css=#btnSignin", "css:finder"],
+        ["xpath=//button[@id='btnSignin']", "xpath:attributes"],
+        ["xpath=//form/div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Đăng nhập')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "3650675e-7148-464c-8bae-31d79325e7de",
+      "comment": "đăng nhập thiếu thông tin",
+      "command": "assertText",
+      "target": "id=swal2-title",
+      "targets": [],
+      "value": "Vui lòng nhập đủ thông tin"
+    }]
+  }, {
+    "id": "09e6b32b-4f9e-4e92-8b2f-f1560d26003c",
+    "name": "DangNhapThanhCong",
+    "commands": [{
+      "id": "442f8615-a8b7-442c-9039-61ae3ae0661c",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:63565/Auth/DangNhap",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "f2da5355-c04a-4b00-8e24-a44adf52b581",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1552x840",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "88886be3-6a79-4d46-9314-dfc8e9fb3936",
+      "comment": "",
+      "command": "click",
+      "target": "id=floatingInputSignin",
+      "targets": [
+        ["id=floatingInputSignin", "id"],
+        ["name=username", "name"],
+        ["css=#floatingInputSignin", "css:finder"],
+        ["xpath=//input[@id='floatingInputSignin']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "8c6f6985-0c92-4fe9-8763-af43a4daa137",
+      "comment": "",
+      "command": "type",
+      "target": "id=floatingInputSignin",
+      "targets": [
+        ["id=floatingInputSignin", "id"],
+        ["name=username", "name"],
+        ["css=#floatingInputSignin", "css:finder"],
+        ["xpath=//input[@id='floatingInputSignin']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "tuhueson"
+    }, {
+      "id": "23c15d50-66af-4b8a-bb89-48c581f84209",
+      "comment": "",
+      "command": "type",
+      "target": "id=floatingPasswordSignin",
+      "targets": [
+        ["id=floatingPasswordSignin", "id"],
+        ["name=pw", "name"],
+        ["css=#floatingPasswordSignin", "css:finder"],
+        ["xpath=//input[@id='floatingPasswordSignin']", "xpath:attributes"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "123456789"
+    }, {
+      "id": "d530875d-3e75-4961-b005-6d0504432bdf",
+      "comment": "",
+      "command": "click",
+      "target": "id=btnSignin",
+      "targets": [
+        ["id=btnSignin", "id"],
+        ["css=#btnSignin", "css:finder"],
+        ["xpath=//button[@id='btnSignin']", "xpath:attributes"],
+        ["xpath=//form/div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Đăng nhập')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "f30121e3-e4df-4906-aa94-663fefee35c8",
+      "comment": "",
+      "command": "assertNotText",
+      "target": "css=#Username > span",
+      "targets": [],
+      "value": " "
+    }, {
+      "id": "2981786c-a728-4642-8094-426d02961d50",
+      "comment": "",
+      "command": "click",
+      "target": "css=.fa",
+      "targets": [
+        ["css=.fa", "css:finder"],
+        ["xpath=//div[@id='navbarScroll']/div/a/span/i", "xpath:idRelative"],
+        ["xpath=//span/i", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "0f916690-15df-4069-93ab-3778c5ca77f0",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["6d5d762f-746c-425a-a470-fd95d4aef6ec"]
+  }],
+  "urls": ["http://localhost:63565/", "http://localhost:63565/Auth/DangNhap"],
+  "plugins": []
+}

@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TestDatas>
+  <Values>
+    <username>tran</username>
+    <pw>0123654</pw>
+    <kq>Đăng nhập thất bại</kq>
+  </Values>
+  <Values>
+    <username>abc</username>
+    <pw>688455</pw>
+    <kq>Đăng nhập thất bại</kq>
+  </Values>
+  <Values>
+    <username>hellochi</username>
+    <pw>654321</pw>
+    <kq>Đăng nhập thất bại</kq>
+  </Values>
+  <Values>
+    <username>aaaaaa</username>
+    <pw>789456</pw>
+    <kq>Đăng nhập thất bại</kq>
+  </Values>
+  <Values>
+    <username>abcxyz</username>
+    <pw>987123</pw>
+    <kq>Đăng nhập thất bại</kq>
+  </Values>
+</TestDatas>
