@@ -1,0 +1,218 @@
+{
+  "id": "2300e4b7-f89d-48b0-bbcc-f29f36a5f405",
+  "version": "2.0",
+  "name": "DatHang",
+  "url": "http://localhost:63565/",
+  "tests": [{
+    "id": "98776c57-6b19-48b4-b64f-c49334bf96a8",
+    "name": "TestDatHang",
+    "commands": [{
+      "id": "7397f616-6526-4fea-947d-5e820a9c532c",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:63565/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "493f99ff-188b-4b0e-98fc-01f08157009d",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1552x840",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "b0578187-1661-4948-9345-f9f1636fa452",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Xem chi tiết",
+      "targets": [
+        ["linkText=Xem chi tiết", "linkText"],
+        ["css=.col-4:nth-child(1) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Xem chi tiết')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/SanPham/XemChiTiet?maSP=SP001')]", "xpath:href"],
+        ["xpath=//div[2]/div/div/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Xem chi tiết')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "11c53d1a-b0a1-4e5c-bfc2-b3c19c11f4c3",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=THÊM VÀO GIỎ HÀNG",
+      "targets": [
+        ["linkText=THÊM VÀO GIỎ HÀNG", "linkText"],
+        ["css=.btnThemVoHang", "css:finder"],
+        ["xpath=//a[contains(text(),'THÊM VÀO GIỎ HÀNG')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/GioHang/ThemGioHang?ms=SP001&strURL=http%3A%2F%2Flocalhost%3A63565%2FSanPham%2FXemChiTiet%3FmaSP%3DSP001')]", "xpath:href"],
+        ["xpath=//div[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'THÊM VÀO GIỎ HÀNG')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "192b1fd0-70fa-4e94-8e58-87287c7e9ea6",
+      "comment": "",
+      "command": "click",
+      "target": "css=.nav-item > .nav-link > span",
+      "targets": [
+        ["css=.nav-item > .nav-link > span", "css:finder"],
+        ["xpath=//div[@id='navbarScroll']/ul/li[5]/a/span", "xpath:idRelative"],
+        ["xpath=//a/span", "xpath:position"],
+        ["xpath=//span[contains(.,'GIỎ HÀNG')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "02d026f1-822c-41b1-9a4e-f30a6803bbbf",
+      "comment": "",
+      "command": "click",
+      "target": "css=.fa-money-bill-wave",
+      "targets": [
+        ["css=.fa-money-bill-wave", "css:finder"],
+        ["xpath=//td[5]/a/span/i", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "d3aa31d1-396a-4db7-b5c2-18b5e7954d0b",
+      "comment": "",
+      "command": "type",
+      "target": "id=txtHoTen",
+      "targets": [
+        ["id=txtHoTen", "id"],
+        ["css=#txtHoTen", "css:finder"],
+        ["xpath=//input[@id='txtHoTen']", "xpath:attributes"],
+        ["xpath=//div[@id='container-fluid mt-2']/div/table/tbody/tr/td/input", "xpath:idRelative"],
+        ["xpath=//td/input", "xpath:position"]
+      ],
+      "value": "Từ Huệ Sơn"
+    }, {
+      "id": "076e3a2b-76d7-4947-ac4f-9ec6a14f157e",
+      "comment": "",
+      "command": "type",
+      "target": "id=txtEmail",
+      "targets": [
+        ["id=txtEmail", "id"],
+        ["css=#txtEmail", "css:finder"],
+        ["xpath=//input[@id='txtEmail']", "xpath:attributes"],
+        ["xpath=//div[@id='container-fluid mt-2']/div/table/tbody/tr[2]/td/input", "xpath:idRelative"],
+        ["xpath=//tr[2]/td/input", "xpath:position"]
+      ],
+      "value": "tuhueson@gmail"
+    }, {
+      "id": "5d6ee288-d105-4e83-afa4-8929f41cb96d",
+      "comment": "",
+      "command": "type",
+      "target": "id=txtSDT",
+      "targets": [
+        ["id=txtSDT", "id"],
+        ["css=#txtSDT", "css:finder"],
+        ["xpath=//input[@id='txtSDT']", "xpath:attributes"],
+        ["xpath=//div[@id='container-fluid mt-2']/div/table/tbody/tr[2]/td[2]/input", "xpath:idRelative"],
+        ["xpath=//td[2]/input", "xpath:position"]
+      ],
+      "value": "0938252793"
+    }, {
+      "id": "662d2667-b00d-40f3-9aa7-be42c54b26f2",
+      "comment": "",
+      "command": "type",
+      "target": "id=txtDiaChi",
+      "targets": [
+        ["id=txtDiaChi", "id"],
+        ["name=#", "name"],
+        ["css=#txtDiaChi", "css:finder"],
+        ["xpath=//input[@id='txtDiaChi']", "xpath:attributes"],
+        ["xpath=//div[@id='container-fluid mt-2']/div/table/tbody/tr[3]/td/input", "xpath:idRelative"],
+        ["xpath=//tr[3]/td/input", "xpath:position"]
+      ],
+      "value": "140 Lê Trọng Tân"
+    }, {
+      "id": "08e6f16f-bdc5-41a8-9485-76f6bef77a3f",
+      "comment": "",
+      "command": "select",
+      "target": "id=TinhThanh",
+      "targets": [],
+      "value": "label=Đà Nẵng"
+    }, {
+      "id": "f6c58e04-8212-49eb-831c-801d18418349",
+      "comment": "",
+      "command": "select",
+      "target": "id=QuanHuyen",
+      "targets": [],
+      "value": "label=Quận Cẩm Lệ"
+    }, {
+      "id": "b0ad336b-0349-4a87-a1d0-8b7bf994fa09",
+      "comment": "",
+      "command": "select",
+      "target": "id=XaPhuong",
+      "targets": [],
+      "value": "label=Phường Hoà Thọ Đông"
+    }, {
+      "id": "8b74e663-d939-418e-8823-cb2ca454dd9a",
+      "comment": "",
+      "command": "click",
+      "target": "id=btnXacNhan",
+      "targets": [
+        ["id=btnXacNhan", "id"],
+        ["linkText=Xác nhận", "linkText"],
+        ["css=#btnXacNhan", "css:finder"],
+        ["xpath=//a[contains(text(),'Xác nhận')]", "xpath:link"],
+        ["xpath=//a[@id='btnXacNhan']", "xpath:attributes"],
+        ["xpath=//div[@id='container-fluid mt-2']/div[2]/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, '#')])[2]", "xpath:href"],
+        ["xpath=//div[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Xác nhận')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "4c4be062-f762-4986-9ad1-42556d12c0d6",
+      "comment": "",
+      "command": "assertText",
+      "target": "id=swal2-title",
+      "targets": [
+        ["id=swal2-title", "id"],
+        ["css=#swal2-title", "css:finder"],
+        ["xpath=//h2[@id='swal2-title']", "xpath:attributes"],
+        ["xpath=//div[11]/div/h2", "xpath:position"],
+        ["xpath=//h2[contains(.,'Email không hợp lệ.Vui lòng nhập lại.')]", "xpath:innerText"]
+      ],
+      "value": "Email không hợp lệ.Vui lòng nhập lại."
+    }, {
+      "id": "e1277f89-088e-4318-a7e5-d6d09d2dcd3b",
+      "comment": "",
+      "command": "click",
+      "target": "css=.nav-item > .nav-link > span",
+      "targets": [
+        ["css=.nav-item > .nav-link > span", "css:finder"],
+        ["xpath=//div[@id='navbarScroll']/ul/li[5]/a/span", "xpath:idRelative"],
+        ["xpath=//a/span", "xpath:position"],
+        ["xpath=//span[contains(.,'GIỎ HÀNG')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "5de9188a-6540-476b-b08d-2a8f4fe1f746",
+      "comment": "",
+      "command": "click",
+      "target": "css=.fa-trash-alt",
+      "targets": [
+        ["css=.fa-trash-alt", "css:finder"],
+        ["xpath=//th[8]/a/span/i", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "23e0222b-c73b-4578-87ae-7a35415eef51",
+      "comment": "",
+      "command": "assertNotText",
+      "target": "css=#tenKhachHang",
+      "targets": [],
+      "value": " "
+    }]
+  }],
+  "suites": [{
+    "id": "ae3500ba-acc1-4563-a0df-7e6e1d6a4c27",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["98776c57-6b19-48b4-b64f-c49334bf96a8"]
+  }],
+  "urls": ["http://localhost:63565/"],
+  "plugins": []
+}

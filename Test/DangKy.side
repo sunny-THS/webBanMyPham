@@ -1,0 +1,155 @@
+{
+  "id": "e8ea480e-d144-4b6b-b268-0aa21c5d39d9",
+  "version": "2.0",
+  "name": "DangKy",
+  "url": "http://localhost:63565/",
+  "tests": [{
+    "id": "faa69084-262d-4593-8581-20c8c671f021",
+    "name": "TestDangKy",
+    "commands": [{
+      "id": "dff65a8f-1a62-4778-b03d-25c2b2679738",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:63565/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "e1066e04-d98d-4149-abd0-3e79727ac3a1",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1552x840",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "5e445d38-f8ed-41e0-b999-508ae546cd93",
+      "comment": "vào chức năng đăng ký",
+      "command": "click",
+      "target": "linkText=ĐĂNG KÝ",
+      "targets": [
+        ["linkText=ĐĂNG KÝ", "linkText"],
+        ["css=.nav-item:nth-child(4) > .nav-link", "css:finder"],
+        ["xpath=//a[contains(text(),'ĐĂNG KÝ')]", "xpath:link"],
+        ["xpath=//div[@id='navbarScroll']/ul/li[4]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '#DangKy')]", "xpath:href"],
+        ["xpath=//li[4]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'ĐĂNG KÝ')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "96c6ff9a-f483-4d75-aa4b-fd78a3623511",
+      "comment": "",
+      "command": "type",
+      "target": "id=floatingNameSignup",
+      "targets": [
+        ["id=floatingNameSignup", "id"],
+        ["name=hoTen", "name"],
+        ["css=#floatingNameSignup", "css:finder"],
+        ["xpath=//input[@id='floatingNameSignup']", "xpath:attributes"],
+        ["xpath=//div[@id='modalSignup']/div/div/div[2]/div/input", "xpath:idRelative"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": "Từ Huệ Sơn"
+    }, {
+      "id": "848e1ec7-2cc6-4547-bdea-6aa7451ab60f",
+      "comment": "",
+      "command": "type",
+      "target": "id=floatingUsernameSignup",
+      "targets": [
+        ["id=floatingUsernameSignup", "id"],
+        ["name=username", "name"],
+        ["css=#floatingUsernameSignup", "css:finder"],
+        ["xpath=//input[@id='floatingUsernameSignup']", "xpath:attributes"],
+        ["xpath=//div[@id='modalSignup']/div/div/div[2]/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "tuhueson"
+    }, {
+      "id": "20be5def-d7d3-4a8b-ae74-2d50fee446c8",
+      "comment": "",
+      "command": "type",
+      "target": "id=floatingPasswordSignup",
+      "targets": [
+        ["id=floatingPasswordSignup", "id"],
+        ["name=pw", "name"],
+        ["css=#floatingPasswordSignup", "css:finder"],
+        ["xpath=//input[@id='floatingPasswordSignup']", "xpath:attributes"],
+        ["xpath=//div[@id='modalSignup']/div/div/div[2]/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": "123456789"
+    }, {
+      "id": "acfef776-f7ac-41ba-b6fa-e03a7ac3bd1d",
+      "comment": "",
+      "command": "type",
+      "target": "id=floatingEmailSignup",
+      "targets": [
+        ["id=floatingEmailSignup", "id"],
+        ["name=email", "name"],
+        ["css=#floatingEmailSignup", "css:finder"],
+        ["xpath=//input[@id='floatingEmailSignup']", "xpath:attributes"],
+        ["xpath=//div[@id='modalSignup']/div/div/div[2]/div[6]/input", "xpath:idRelative"],
+        ["xpath=//div[6]/input", "xpath:position"]
+      ],
+      "value": "tuhueson@gmail.com"
+    }, {
+      "id": "e97ac778-63b8-41ca-bd9b-604bf8189cf4",
+      "comment": "",
+      "command": "type",
+      "target": "id=floatingNgSinhSignup",
+      "targets": [
+        ["id=floatingNgSinhSignup", "id"],
+        ["name=ngaySinh", "name"],
+        ["css=#floatingNgSinhSignup", "css:finder"],
+        ["xpath=//input[@id='floatingNgSinhSignup']", "xpath:attributes"],
+        ["xpath=//div[@id='modalSignup']/div/div/div[2]/div[7]/input", "xpath:idRelative"],
+        ["xpath=//div[7]/input", "xpath:position"]
+      ],
+      "value": "2022-05-26"
+    }, {
+      "id": "ca4921d6-c00b-4a71-918d-a1ef6b41ecb5",
+      "comment": "",
+      "command": "type",
+      "target": "id=floatingPhoneSignup",
+      "targets": [
+        ["id=floatingPhoneSignup", "id"],
+        ["name=sdt", "name"],
+        ["css=#floatingPhoneSignup", "css:finder"],
+        ["xpath=//input[@id='floatingPhoneSignup']", "xpath:attributes"],
+        ["xpath=//div[@id='modalSignup']/div/div/div[2]/div[8]/input", "xpath:idRelative"],
+        ["xpath=//div[8]/input", "xpath:position"]
+      ],
+      "value": "0938252793"
+    }, {
+      "id": "77f72c58-2e76-4764-803f-529b3b81980a",
+      "comment": "",
+      "command": "click",
+      "target": "id=btnSignupInfo",
+      "targets": [
+        ["id=btnSignupInfo", "id"],
+        ["css=#btnSignupInfo", "css:finder"],
+        ["xpath=//button[@id='btnSignupInfo']", "xpath:attributes"],
+        ["xpath=//div[@id='modalSignup']/div/div/div[2]/button", "xpath:idRelative"],
+        ["xpath=//div[2]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Đăng ký')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "37373ac7-4aec-488d-a077-933005cad9a9",
+      "comment": "",
+      "command": "assertText",
+      "target": "id=swal2-title",
+      "targets": [],
+      "value": "Username đã tồn tại. Vui lòng nhập lại"
+    }]
+  }],
+  "suites": [{
+    "id": "13804dc1-ce44-4725-a0e9-3612735f05e7",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["faa69084-262d-4593-8581-20c8c671f021"]
+  }],
+  "urls": ["http://localhost:63565/"],
+  "plugins": []
+}

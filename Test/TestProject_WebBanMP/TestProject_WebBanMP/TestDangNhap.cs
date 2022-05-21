@@ -50,6 +50,8 @@ public class TestDangNhap
         driver.FindElement(By.Id("floatingInputSignin")).SendKeys(pUsername);
         driver.FindElement(By.Id("floatingPasswordSignin")).SendKeys(pPw);
         driver.FindElement(By.Id("btnSignin")).Click();
+
+        Thread.Sleep(1500);
         try
         {
             Assert.That(driver.FindElement(By.CssSelector("#Username > span")).Text, Is.Not.EqualTo(pKetQuaMongDoi));
@@ -61,6 +63,10 @@ public class TestDangNhap
             if (string.IsNullOrEmpty(pPw) || string.IsNullOrEmpty(pUsername))
                 Assert.That("Vui lòng nhập đủ thông tin", Is.EqualTo(pKetQuaMongDoi)); // nhập thiểu thông tin
             else Assert.That(driver.FindElement(By.Id("swal2-title")).Text, Is.EqualTo(pKetQuaMongDoi));
+        }
+        finally
+        {
+            TearDown();
         }
     }
 }

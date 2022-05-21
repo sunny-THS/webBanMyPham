@@ -11,13 +11,25 @@
         'border': ''
     })
 
-    if (name_.trim().length==0 || username_.trim().length==0 || pw_.trim().length==0 || email_.trim().length==0 || tel_.trim().length==0 || ngSinh_.trim().length==0)
+    if (ngSinh_.trim().length == 0)
+    {
+        Toast.fire({
+            icon: 'error', 
+            title: 'Định dạng ngày sinh không hợp lệ' 
+        });
+        $('#floatingNgSinhSignup').css({
+            'border': '1px solid red'
+        })
+        return;
+    }
+
+    if (name_.trim().length==0 || username_.trim().length==0 || pw_.trim().length==0 || email_.trim().length==0 || tel_.trim().length==0)
     {
         Toast.fire({
             icon: 'error', 
             title: 'Vui lòng nhập đầy đủ thông tin!' 
         });
-        $('#floatingNameSignup, #floatingUsernameSignup, #floatingPasswordSignup, #floatingEmailSignup, #floatingPhoneSignup, #floatingNgSinhSignup').css({
+        $('#floatingNameSignup, #floatingUsernameSignup, #floatingPasswordSignup, #floatingEmailSignup, #floatingPhoneSignup').css({
             'border': '1px solid red'
         })
         return;

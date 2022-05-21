@@ -54,7 +54,8 @@ namespace WebBanMyPham.Controllers
         [HttpPost]
         public JsonResult DangKy(ThongTinNguoiDung signup)
         {
-            string res = db.sp_AddAcc(signup.Tk.Username, signup.Tk.Pw, "Khách Hàng", signup.HoTen, signup.NgaySinh, signup.GioiTinh, signup.Email, signup.Sdt, string.Empty, true).ToList<sp_AddAccResult>()[0].Message;
+            var res_data = db.sp_AddAcc(signup.Tk.Username, signup.Tk.Pw, "Khách Hàng", signup.HoTen, signup.NgaySinh, signup.GioiTinh, signup.Email, signup.Sdt, string.Empty, true).ToList<sp_AddAccResult>();
+            string res = res_data[0].Message;
 
             JsonResult a = new JsonResult();
 

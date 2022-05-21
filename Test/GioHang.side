@@ -1,0 +1,119 @@
+{
+  "id": "496f8577-463a-4824-a0d0-47afced2fc7c",
+  "version": "2.0",
+  "name": "GioHang",
+  "url": "http://localhost:63565/",
+  "tests": [{
+    "id": "bf08ab15-5fe8-4bb6-b215-5bf1056e79ae",
+    "name": "TestGioHang",
+    "commands": [{
+      "id": "97c7fb83-bb5c-41ca-8d53-8c25f9425f7f",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:63565/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "568fafbc-23f4-4068-b7b8-7b85fcfe22ca",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1536x824",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "7961ecbc-5fc3-4dad-bef6-fe40e5a0836e",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Xem chi tiết",
+      "targets": [
+        ["linkText=Xem chi tiết", "linkText"],
+        ["css=.col-4:nth-child(1) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Xem chi tiết')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/SanPham/XemChiTiet?maSP=SP001')]", "xpath:href"],
+        ["xpath=//div[2]/div/div/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Xem chi tiết')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "da4e48a9-8a32-4bfd-bce2-2ae0dacaf70c",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=THÊM VÀO GIỎ HÀNG",
+      "targets": [
+        ["linkText=THÊM VÀO GIỎ HÀNG", "linkText"],
+        ["css=.btnThemVoHang", "css:finder"],
+        ["xpath=//a[contains(text(),'THÊM VÀO GIỎ HÀNG')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/GioHang/ThemGioHang?ms=SP001&strURL=http%3A%2F%2Flocalhost%3A63565%2FSanPham%2FXemChiTiet%3FmaSP%3DSP001')]", "xpath:href"],
+        ["xpath=//div[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'THÊM VÀO GIỎ HÀNG')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "0006974a-5a3c-424e-a59f-0f386f30d126",
+      "comment": "",
+      "command": "click",
+      "target": "css=.nav-item > .nav-link > span",
+      "targets": [
+        ["css=.nav-item > .nav-link > span", "css:finder"],
+        ["xpath=//div[@id='navbarScroll']/ul/li[5]/a/span", "xpath:idRelative"],
+        ["xpath=//a/span", "xpath:position"],
+        ["xpath=//span[contains(.,'GIỎ HÀNG')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "f8888106-8165-40bf-aef6-ea72b19689e4",
+      "comment": "",
+      "command": "type",
+      "target": "name=txtSoLuong",
+      "targets": [
+        ["name=txtSoLuong", "name"],
+        ["css=td:nth-child(5) > input", "css:finder"],
+        ["xpath=//input[@name='txtSoLuong']", "xpath:attributes"],
+        ["xpath=//td[4]/input", "xpath:position"]
+      ],
+      "value": "30"
+    }, {
+      "id": "24665479-39ba-436c-ada4-df68239cf5af",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-primary:nth-child(1)",
+      "targets": [
+        ["css=.btn-primary:nth-child(1)", "css:finder"],
+        ["xpath=//input[@value='Update']", "xpath:attributes"],
+        ["xpath=//td[9]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "96bb6acd-f75f-4e01-b05f-974b237be320",
+      "comment": "",
+      "command": "assertText",
+      "target": "id=swal2-title",
+      "targets": [],
+      "value": "Sản phẩm Nước Tẩy Trang L'Oreal Paris S... không đủ số lượng"
+    }, {
+      "id": "c3eef836-3eb7-4ab4-8a42-3c4eb571d9d3",
+      "comment": "",
+      "command": "click",
+      "target": "css=.fa-trash-alt",
+      "targets": [
+        ["css=.fa-trash-alt", "css:finder"],
+        ["xpath=//th[8]/a/span/i", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "2c5e926a-b121-4ba4-96bd-f6dd5c98f02f",
+    "name": "TestGioHang_soLuong",
+    "commands": []
+  }],
+  "suites": [{
+    "id": "89db2d42-1db7-4015-ba11-62ec2b1f1a7d",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["bf08ab15-5fe8-4bb6-b215-5bf1056e79ae"]
+  }],
+  "urls": ["http://localhost:63565/"],
+  "plugins": []
+}
